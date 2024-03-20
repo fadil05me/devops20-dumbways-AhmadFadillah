@@ -58,6 +58,13 @@ Teknologi Virtualization digunakan untuk membagi Resource menjadi lebih kecil un
 <hr>
 <br>
 
+**Hasil:**
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9e96909c-b490-4dce-8cfa-ab92a42faa02)
+
+<br><br>
+
+
 ## TASK 4: Buat step-by-step untuk menginstall Virutal Machine via VMware, Virtualbox atau VM pilihan kalian!
 
 
