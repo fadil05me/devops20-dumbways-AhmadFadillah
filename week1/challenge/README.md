@@ -1,4 +1,4 @@
-# CHALLANGE WEEK 1
+# CHALLENGE WEEK 1
 
 ## 1. Rubah nama hostname menjadi "dumbways"
 
