@@ -214,37 +214,37 @@ Selanjutnya kita tambahkan Swap Space dengan mengulangi cara diatas tadi, untuk 
 <br><br>
 Untuk hasilnya seperti ini, Selanjutnya pilih Done dan Continue.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/197ee9f5-6cb8-4b56-b3dd-96cc9b81df19" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/197ee9f5-6cb8-4b56-b3dd-96cc9b81df19" width="80%"/>
 <br><br>
 Masukkan nama, nama server, username, dan password sesuai kebutuhan. Jika sudah pilih "Done".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b89ab985-2092-4492-822b-39faf637090f" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b89ab985-2092-4492-822b-39faf637090f" width="80%"/>
 <br><br>
 Pada bagian ini pilih "Skip for now", lalu "Continue".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f93a8b85-a2ec-4a05-bedb-a20466e95694" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f93a8b85-a2ec-4a05-bedb-a20466e95694" width="80%"/>
 <br><br>
 Berikan tanda "X" pada "Install OpenSSH Server", lalu Done.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/367e6ad4-6976-481c-be17-d1e62b0c55fd" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/367e6ad4-6976-481c-be17-d1e62b0c55fd" width="80%"/>
 <br><br>
 Disini saya langsung pilih Done.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ca130f56-2b16-47f8-8dad-1efdcf215fa1" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ca130f56-2b16-47f8-8dad-1efdcf215fa1" width="80%"/>
 <br><br>
 Tunggu sampai proses installasi selesai.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a9d5e081-585d-4d7d-9972-a6f9d9f0164b" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a9d5e081-585d-4d7d-9972-a6f9d9f0164b" width="80%"/>
 <br><br>
 Jika sudah selesai, pilih "Reboot Now".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/dffca4fe-65a2-4105-8ca8-adc33679e041" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/dffca4fe-65a2-4105-8ca8-adc33679e041" width="80%"/>
 <br><br>
 Jika sudah sampai sini, silahkan login dengan menginput username lalu password.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/298f4fc0-ac8c-41d2-b793-048920ac28bc" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/298f4fc0-ac8c-41d2-b793-048920ac28bc" width="80%"/>
 <br><br>
 Jika sudah login, maka tampilannya seperti ini.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/23cf12b0-1dd6-4167-9a3f-a891bbb11011" width="60%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/23cf12b0-1dd6-4167-9a3f-a891bbb11011" width="80%"/>
 
