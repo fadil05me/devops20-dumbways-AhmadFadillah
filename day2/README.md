@@ -190,7 +190,67 @@ Pada bagian ens33 tekan enter, lalu kebawah kebagian "Edit IPv4" enter.
 Pada bagian "IPv4 Method:" ganti menjadi Manual.
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/13b30ad7-ed92-4078-b677-948a6c99eeeb" width="70%"/>
 <br><br>
-Sesuaikan dengan IP adapter wifi tadi, dengan catatan pada Address angka terakhir harus berbeda. Jika sudah pilih Save.
+Sesuaikan dengan IP adapter wifi tadi, dengan catatan pada Address angka terakhir harus berbeda. Jika sudah pilih Save dan Done.
 <br>
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/791d42ba-cdd8-44ae-a95c-fb856c992342" width="70%"/>
 <br><br>
+Pada bagian ini saya langsung Done
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/06027671-2113-4b22-a85a-d22625d0da08" width="70%"/>
+<br><br>
+Done lagi...
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8ba70f61-7726-43e3-ad80-c25861d4ad59" width="70%"/>
+<br><br>
+Pilih "Custom Storage Layout", lalu Done.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4b60ccc4-d516-42f8-95a1-d61eb042e97a" width="70%"/>
+<br><br>
+Pilih pada bagian "free space", lalu pilih "Add GPT Partition".
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7b3fe255-e0d8-4842-b4f1-ef4c36be2603" width="70%"/>
+<br><br>
+Size disini saya isi "8G" yaitu 8 Giga Byte, formatnya pilih "ext4", mount pilih "/". Lalu Create.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1e1d94c2-c5a3-48d0-8ceb-051eec11d21f" width="70%"/>
+<br><br>
+Selanjutnya kita tambahkan Swap Space dengan mengulangi cara diatas tadi, untuk Sizenya "1.800G" lalu formatnya "swap".
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9cd2bd94-566a-48b5-b493-376b764ef4af" width="70%"/>
+<br><br>
+Untuk hasilnya seperti ini, Selanjutnya pilih Done dan Continue.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/197ee9f5-6cb8-4b56-b3dd-96cc9b81df19" width="60%"/>
+<br><br>
+Masukkan nama, nama server, username, dan password sesuai kebutuhan. Jika sudah pilih "Done".
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b89ab985-2092-4492-822b-39faf637090f" width="60%"/>
+<br><br>
+Pada bagian ini pilih "Skip for now", lalu "Continue".
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f93a8b85-a2ec-4a05-bedb-a20466e95694" width="60%"/>
+<br><br>
+Berikan tanda "X" pada "Install OpenSSH Server", lalu Done.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/367e6ad4-6976-481c-be17-d1e62b0c55fd" width="60%"/>
+<br><br>
+Disini saya langsung pilih Done.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ca130f56-2b16-47f8-8dad-1efdcf215fa1" width="60%"/>
+<br><br>
+Tunggu sampai proses installasi selesai.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a9d5e081-585d-4d7d-9972-a6f9d9f0164b" width="60%"/>
+<br><br>
+Jika sudah selesai, pilih "Reboot Now".
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/dffca4fe-65a2-4105-8ca8-adc33679e041" width="60%"/>
+<br><br>
+Jika sudah sampai sini, silahkan login dengan menginput username lalu password.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/298f4fc0-ac8c-41d2-b793-048920ac28bc" width="60%"/>
+<br><br>
+Jika sudah login, maka tampilannya seperti ini.
+<br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/23cf12b0-1dd6-4167-9a3f-a891bbb11011" width="60%"/>
+
