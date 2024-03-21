@@ -60,7 +60,8 @@ Teknologi Virtualization digunakan untuk membagi Resource menjadi lebih kecil un
 
 **Hasil:**
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9e96909c-b490-4dce-8cfa-ab92a42faa02)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4f968484-3222-45b5-a8ff-be479da2ce39)
+
 
 <br><br>
 
