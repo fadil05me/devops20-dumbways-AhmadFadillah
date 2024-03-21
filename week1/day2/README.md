@@ -5,15 +5,9 @@
 **IP Private:**
 - Digunakan untuk jaringan internal, seperti di rumah, kantor atau warnet.
 - Tidak dapat diakses secara langsung dari jaringan internet publik.
-- Digunakan untuk berkomunikasi antar perangkat dalam jaringan internal.
-- Jumlahnya terbatas dan diatur oleh RFC 1918.
+- Jumlahnya terbatas.
 - Contoh: 192.168.1.1, 172.16.0.1, 10.0.0.1.
-- Internet Assigned Numbers Authority (IANA) telah menetapkan tiga blok alamat IP Private:
-     ```
-     10.0.0.0        -   10.255.255.255  (10/8 prefix)
-     172.16.0.0      -   172.31.255.255  (172.16/12 prefix)
-     192.168.0.0     -   192.168.255.255 (192.168/16 prefix)
-     ```
+
 **IP Public:**
 - Digunakan untuk terhubung ke jaringan internet publik.
 - Dapat diakses secara langsung dari jaringan internet publik.
@@ -25,14 +19,14 @@
 - Didapatkan secara otomatis dari server DHCP (Dynamic Host Configuration Protocol) setiap kali perangkat terhubung ke jaringan.
 - Biasanya digunakan pada jaringan rumah atau kantor kecil.
 - Alamat IP dapat berubah-ubah ketika perangkat dimatikan dan dihidupkan kembali, atau terhubung ke jaringan yang berbeda.
-- _Keuntungan_: Mudah diatur, Hemat biaya bagi penyedia layanan internet (ISP) untuk mengalokasikan IP.
+- _Keuntungan_: Lebih mudah diatur.
 - _Kekurangan_: Sulit untuk mengakses perangkat dari jarak jauh secara konsisten karena alamat IP terus berubah.
 
 **IP Statis (Static IP):**
 - Diatur secara manual pada perangkat jaringan dan tidak berubah.
 - Biasanya digunakan untuk server, printer jaringan, atau perangkat lain yang perlu diakses secara konsisten dari jarak jauh.
 - Memerlukan pengaturan tambahan pada perangkat dan router.
-- _Keuntungan_: Memungkinkan akses jarak jauh yang lebih mudah dan konsisten ke perangkat.
+- _Keuntungan_: Akses jarak jauh yang lebih mudah dan konsisten ke perangkat.
 - _Kekurangan_: Lebih sulit diatur, Perlu perencanaan dan alokasi IP yang baik agar tidak terjadi konflik IP.
 
 
@@ -40,7 +34,7 @@
 
 ## TASK 2: Buat penjelasan singkat tentang Virtualization!
 
-Teknologi Virtualization digunakan untuk membagi Resource menjadi lebih kecil untuk dipakai ke lebih banyak Operating System.
+Teknologi Virtualization digunakan untuk membagi Resource menjadi lebih kecil agar dapat dipakai ke lebih banyak Operating System.
 
 <br>
 
