@@ -1,4 +1,4 @@
-# DAY 3 | Operating System & Linux Server
+# DAY 3 - Operating System & Linux Server
 
 ## TASK 1: Cari perbedaan antara distro Ubuntu dan CentOS!
 
