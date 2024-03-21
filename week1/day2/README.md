@@ -167,11 +167,11 @@ Tunggu sampai muncul seperti ini, lalu tekan "Enter" pada keyboard.
 <br><br>
 Tunggu hingga tampilan seperti ini, Silahkan pilih bahasa yang diinginkan. Disini saya menggunakan bahasa Inggris. Jika sudah tekan Enter.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/32fe75ec-3585-490f-a2a5-ba57e200a771" width="80%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/32fe75ec-3585-490f-a2a5-ba57e200a771" width="70%"/>
 <br><br>
 Selanjutnya, ini adalah tampilan untuk memilih layout keyboard. Disini saya langsung pilih "Done".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/61a1af10-a721-4edf-b64f-da76f7d0a11a" width="80%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/61a1af10-a721-4edf-b64f-da76f7d0a11a" width="70%"/>
 <br><br>
 Disini saya juga langsung pilih "Done".
 <br>
