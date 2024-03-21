@@ -90,4 +90,5 @@ ip a
 ```
 
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/343a1736-fd52-483c-8b80-a430a49db7d7" width="80%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bf74f8a1-f972-43c8-b0e0-9674e4710a31" width="80%"/>
+
