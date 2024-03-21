@@ -65,12 +65,12 @@ Teknologi Virtualization digunakan untuk membagi Resource menjadi lebih kecil ag
 
 ### Step 1: Download VMWare (Link Download: <a href="https://customerconnect.vmware.com/en/downloads/details?downloadGroup=WKST-PLAYER-1751&productId=1377&rPId=117008">VMWare 17</a>). Disini saya download yang Windows 64-bit
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7c6d51db-361d-455f-98a1-6e2c006c9d6a" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7c6d51db-361d-455f-98a1-6e2c006c9d6a" width="70%"/>
 <br><br>
 
 ### Step 2: Download ISO Ubuntu Server 22.04.4 LTS (Link Download: <a href="https://ubuntu.com/download/server#downloads">Ubuntu Server.iso</a>)
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a6987c75-df42-4437-aabd-966b90bd3d28" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a6987c75-df42-4437-aabd-966b90bd3d28" width="70%"/>
 <br><br>
 
 ### Step 3: Install VMWare 17
@@ -111,27 +111,27 @@ Tunggu sampai proses selesai.
 ### Step 4: Install Ubuntu Server di VMWare
 Jalankan aplikasi VMWare lalu klik Player -> File -> New Virtual Machine... atau dengan menekan tombol CTRL + N pada keyboard.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/55b04359-f6e0-4b9d-b666-a5610ca5557f" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/55b04359-f6e0-4b9d-b666-a5610ca5557f" width="70%"/>
 <br><br>
 Pilih "Installer disc image file (iso)" lalu klik "Browse...".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0cc980e3-6ee3-47d7-954c-449d99b07a3f" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0cc980e3-6ee3-47d7-954c-449d99b07a3f" width="70%"/>
 <br><br>
 Cari file iso Ubuntu server yang sudah di download tadi lalu klik "Open".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/12f108a8-0706-487e-8b7c-e2231812480d" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/12f108a8-0706-487e-8b7c-e2231812480d" width="80%"/>
 <br><br>
 Klik Next
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e7cf7b7d-7897-401a-be99-86605215cc57" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e7cf7b7d-7897-401a-be99-86605215cc57" width="70%"/>
 <br><br>
 Pada bagian Location, bisa disesuaikan dimana nantinya akan menyimpan file VM dari ubuntu server. Jika sudah ok klik Next.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fa3c4687-20d8-44dd-a966-39513efd2ca7" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fa3c4687-20d8-44dd-a966-39513efd2ca7" width="70%"/>
 <br><br>
 Selanjutnya, pada Maximum disk size isi berapa jumlah maximal storage yang akan diberikan untuk Ubuntu Server. Disini saya menggunakan 10GB Storage dan memilih "Split virtual disk into multiple files".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2f06d8cf-c3c5-41c8-8f0d-b2407ab03c9c" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2f06d8cf-c3c5-41c8-8f0d-b2407ab03c9c" width="70%"/>
 <br><br>
 Pilih "Customize Hardware...".
 <br>
@@ -155,7 +155,7 @@ Untuk cara melihat adapter wifi yang digunakan, Tekan Start di Windows lalu cari
 <br><br>
 Selanjutnya, Klik "Close"
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2fa0e9e-c090-4ca9-aac6-790e5216fce0" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2fa0e9e-c090-4ca9-aac6-790e5216fce0" width="70%"/>
 <br><br>
 Ceklist pada bagian "Power on this virtual machine after creation" lalu Klik "Finish".
 <br>
@@ -163,15 +163,15 @@ Ceklist pada bagian "Power on this virtual machine after creation" lalu Klik "Fi
 <br><br>
 Tunggu sampai muncul seperti ini, lalu tekan "Enter" pada keyboard.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/414b9c90-5d75-4862-9ac6-b2d11f33a807" width="50%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/414b9c90-5d75-4862-9ac6-b2d11f33a807" width="70%"/>
 <br><br>
 Tunggu hingga tampilan seperti ini, Silahkan pilih bahasa yang diinginkan. Disini saya menggunakan bahasa Inggris. Jika sudah tekan Enter.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/32fe75ec-3585-490f-a2a5-ba57e200a771" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/32fe75ec-3585-490f-a2a5-ba57e200a771" width="80%"/>
 <br><br>
 Selanjutnya, ini adalah tampilan untuk memilih layout keyboard. Disini saya langsung pilih "Done".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/61a1af10-a721-4edf-b64f-da76f7d0a11a" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/61a1af10-a721-4edf-b64f-da76f7d0a11a" width="80%"/>
 <br><br>
 Disini saya juga langsung pilih "Done".
 <br>
