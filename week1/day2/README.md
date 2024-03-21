@@ -163,54 +163,54 @@ Ceklist pada bagian "Power on this virtual machine after creation" lalu Klik "Fi
 <br><br>
 Tunggu sampai muncul seperti ini, lalu tekan "Enter" pada keyboard.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/414b9c90-5d75-4862-9ac6-b2d11f33a807" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/414b9c90-5d75-4862-9ac6-b2d11f33a807" width="80%"/>
 <br><br>
 Tunggu hingga tampilan seperti ini, Silahkan pilih bahasa yang diinginkan. Disini saya menggunakan bahasa Inggris. Jika sudah tekan Enter.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/32fe75ec-3585-490f-a2a5-ba57e200a771" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/32fe75ec-3585-490f-a2a5-ba57e200a771" width="80%"/>
 <br><br>
 Selanjutnya, ini adalah tampilan untuk memilih layout keyboard. Disini saya langsung pilih "Done".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/61a1af10-a721-4edf-b64f-da76f7d0a11a" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/61a1af10-a721-4edf-b64f-da76f7d0a11a" width="80%"/>
 <br><br>
 Disini saya juga langsung pilih "Done".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f371796d-d5e3-4c51-9236-73da17d7763f" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f371796d-d5e3-4c51-9236-73da17d7763f" width="80%"/>
 <br><br>
 Pada bagian ens33 tekan enter, lalu kebawah kebagian "Edit IPv4" enter.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3cc88138-9fcc-4ea3-b321-951f028f7bd6" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3cc88138-9fcc-4ea3-b321-951f028f7bd6" width="80%"/>
 <br><br>
 Pada bagian "IPv4 Method:" ganti menjadi Manual.
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/13b30ad7-ed92-4078-b677-948a6c99eeeb" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/13b30ad7-ed92-4078-b677-948a6c99eeeb" width="80%"/>
 <br><br>
 Sesuaikan dengan IP adapter wifi tadi, dengan catatan pada Address angka terakhir harus berbeda. Jika sudah pilih Save dan Done.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/791d42ba-cdd8-44ae-a95c-fb856c992342" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/791d42ba-cdd8-44ae-a95c-fb856c992342" width="80%"/>
 <br><br>
 Pada bagian ini saya langsung Done
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/06027671-2113-4b22-a85a-d22625d0da08" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/06027671-2113-4b22-a85a-d22625d0da08" width="80%"/>
 <br><br>
 Done lagi...
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8ba70f61-7726-43e3-ad80-c25861d4ad59" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8ba70f61-7726-43e3-ad80-c25861d4ad59" width="80%"/>
 <br><br>
 Pilih "Custom Storage Layout", lalu Done.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4b60ccc4-d516-42f8-95a1-d61eb042e97a" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4b60ccc4-d516-42f8-95a1-d61eb042e97a" width="80%"/>
 <br><br>
 Pilih pada bagian "free space", lalu pilih "Add GPT Partition".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7b3fe255-e0d8-4842-b4f1-ef4c36be2603" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7b3fe255-e0d8-4842-b4f1-ef4c36be2603" width="80%"/>
 <br><br>
 Size disini saya isi "8G" yaitu 8 Giga Byte, formatnya pilih "ext4", mount pilih "/". Lalu Create.
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1e1d94c2-c5a3-48d0-8ceb-051eec11d21f" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1e1d94c2-c5a3-48d0-8ceb-051eec11d21f" width="80%"/>
 <br><br>
 Selanjutnya kita tambahkan Swap Space dengan mengulangi cara diatas tadi, untuk Sizenya "1.800G" lalu formatnya "swap".
 <br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9cd2bd94-566a-48b5-b493-376b764ef4af" width="70%"/>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9cd2bd94-566a-48b5-b493-376b764ef4af" width="80%"/>
 <br><br>
 Untuk hasilnya seperti ini, Selanjutnya pilih Done dan Continue.
 <br>
