@@ -247,4 +247,8 @@ Jika sudah sampai sini, silahkan login dengan menginput username lalu password.
 Jika sudah login, maka tampilannya seperti ini.
 <br>
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/23cf12b0-1dd6-4167-9a3f-a891bbb11011" width="80%"/>
+<br><br>
+Terakhir, lakukan test ping ke 1.1.1.1
+<br>
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b4745cf4-9435-45ce-b471-5440d7006697)
 
