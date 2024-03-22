@@ -110,10 +110,14 @@ Contoh penggunaan dari systemctl adalah sbb:
   ```
   sudo systemctl start nginx
   ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8488e640-41e5-4f17-b278-23e1e8eb7b2f)
+
 - Menghentikan service
   ```
   sudo systemctl stop nginx
   ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/611585d8-66b9-4871-8389-718e78f9bf52)
+
 - Memeriksa status service
   ```
   sudo systemctl status nginx
@@ -122,11 +126,16 @@ Contoh penggunaan dari systemctl adalah sbb:
   ```
   sudo systemctl restart nginx
   ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3e216dcc-ad06-498c-8aa1-9aab86066ed9)
+
 - Mengaktifkan service agar otomatis berjalan saat boot
   ```
   sudo systemctl enable nginx
   ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/15884ce2-75b3-499c-a44d-1ce4797d6f4a)
+
 - Menonaktifkan service agar tidak berjalan otomatis saat boot
   ```
   sudo systemctl disable nginx
   ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0f13f48a-2f9e-40be-9f9c-48030dfb8c27)
