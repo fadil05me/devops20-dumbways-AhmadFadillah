@@ -1,4 +1,4 @@
-# DAY 2 - Manage Server w/ Terminal
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/06b6c70c-1d88-422e-9c20-064d763fd6ac)# DAY 2 - Manage Server w/ Terminal
 
 ## TASK 1: Buat 3 directory yang masing-masing berisi 2 file dan rapihkan sebaik mungkin!
 
@@ -112,6 +112,10 @@ htop adalah aplikasi linux berbasis CLI yang digunakan untuk memantau proses sis
 
 ## TASK 4: buatlah BASH Script untuk instalasi nginx
 
+
+Buat file ```nginx.sh``` lalu pastekan script berikut:
+
+
 ```
 #!/bin/bash
 
@@ -122,11 +126,40 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install nginx -y
 
 # Periksa status Nginx
+echo -e "\n===============\nCek Status nginx: \n===============\n"
 sudo systemctl status nginx | grep "Active"
 
+# Cek dengan CURL
+echo -e "\n\n===============\nCek dengan CURL: \n===============\n"
+curl localhost | grep -m 1 "Welcome"
+
 # Tampilkan versi Nginx
+echo -e "\n\n===============\nCek versi nginx: \n===============\n"
 sudo nginx -v
 
 # Tampilkan pesan
-echo "Nginx telah berhasil diinstal!"
+echo -e "\n===============\nNginx telah berhasil diinstal!\n===============\n"
 ```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4fae5ef7-5e5b-4901-81cd-9072ee688bd1)
+
+
+Jika sudah disave, jalankan command berikut, agar filenya dapat di exekusi:
+```
+chmod +x nginx.sh
+```
+
+lalu, jalankan command berikut:
+```
+./nginx.sh
+```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8cccf88b-8a1b-4ddb-b29a-6de67441e137)
+
+Tunggu sampai prosesnya selesai
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/96fe91fb-5ede-41b1-8e07-952fa02aff8a)
+
+Jika sudah selesai, maka akan seperti ini:
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a7344df1-c18a-48c6-8515-e46dbd25ee78)
