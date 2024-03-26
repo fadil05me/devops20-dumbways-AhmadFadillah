@@ -111,3 +111,22 @@ htop adalah aplikasi linux berbasis CLI yang digunakan untuk memantau proses sis
 
 
 ## TASK 4: buatlah BASH Script untuk instalasi nginx
+
+```
+#!/bin/bash
+
+# Update dan upgrade sistem
+sudo apt update && sudo apt upgrade -y
+
+# Instal Nginx
+sudo apt install nginx -y
+
+# Periksa status Nginx
+sudo systemctl status nginx | grep "Active"
+
+# Tampilkan versi Nginx
+sudo nginx -v
+
+# Tampilkan pesan
+echo "Nginx telah berhasil diinstal!"
+```
