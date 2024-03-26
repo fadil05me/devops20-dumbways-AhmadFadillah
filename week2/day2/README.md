@@ -1,4 +1,4 @@
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/06b6c70c-1d88-422e-9c20-064d763fd6ac)# DAY 2 - Manage Server w/ Terminal
+# DAY 2 - Manage Server w/ Terminal
 
 ## TASK 1: Buat 3 directory yang masing-masing berisi 2 file dan rapihkan sebaik mungkin!
 
