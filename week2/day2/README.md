@@ -141,7 +141,8 @@ sudo nginx -v
 echo -e "\n===============\nNginx telah berhasil diinstal!\n===============\n"
 ```
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4fae5ef7-5e5b-4901-81cd-9072ee688bd1)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/51754724-2fbe-4fa9-b8e7-4e576ee4ac72)
+
 
 
 Jika sudah disave, jalankan command berikut, agar filenya dapat di exekusi:
