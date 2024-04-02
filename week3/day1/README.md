@@ -44,5 +44,11 @@
   
 
 ## Task 3: Deploy Golang & Python dengan menampilkan nama masing-masing
-
    
+   1. Python
+
+      Pertama install pip terlebih dahulu
+
+      ```
+      sudo apt install pip
+      ```
