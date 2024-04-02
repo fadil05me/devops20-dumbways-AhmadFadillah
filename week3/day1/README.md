@@ -50,5 +50,51 @@
       Pertama install pip terlebih dahulu
 
       ```
-      sudo apt install pip
+      sudo apt install pip -y
       ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1ac86c71-edb9-44ca-9c5e-add623adace9)
+
+      Lalu install flask
+
+      ```
+      pip install flask
+      ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7e1a9527-7e28-45ad-8091-f31aadd471ca)
+
+      Buat file ```index.py```
+
+      ```
+      nano index.py
+      ```
+
+      Lalu isi dengan script ini
+
+      ```
+      from flask import Flask
+      app = Flask(__name__)
+      @app.route("/")
+      def helloworld():
+          return "Ahmad Fadillah"
+      if __name__ == "__main__":
+          app.run(host='0.0.0.0')
+      ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9406ddf4-022b-4e4e-8373-448f29ebb0e3)
+
+      Simpan dan jalankan scriptnya dengan menggunakan command berikut:
+
+      ```
+      python3 index.py
+      ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2f6095f8-209e-4357-b736-73e3fd3448b8)
+
+      Hasil di browser:
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9d510434-8c89-489e-93a9-b03c1848267b)
+
+   2. Golang
+
+      
