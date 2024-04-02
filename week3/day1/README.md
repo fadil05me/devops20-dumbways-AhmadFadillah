@@ -42,3 +42,7 @@
   Untuk cara install NodeJS ada di tugas challange week2 [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/week2/challenge#1-install-nodejs-using-bash-script)
 
   
+
+## Task 3: Deploy Golang & Python dengan menampilkan nama masing-masing
+
+   
