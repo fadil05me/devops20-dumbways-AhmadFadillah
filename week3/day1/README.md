@@ -97,4 +97,97 @@
 
    2. Golang
 
+      Pertama install golang terlebih dahulu
+
+      ```
+      wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz && sudo su
+      ```
       
+      ![1](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bec3ec10-606d-45c0-81ab-bd9805bcaa32)
+
+      Tunggu sampai proses download selesai, lalu nanti diminta password
+
+      ![3](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6d89df6e-9e8f-4346-983d-6a4e114c435a)
+
+      Selanjutnya, jalankan command berikut
+
+      ```
+      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz && exit
+      ```
+
+      ![5](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/916242d6-cbd3-44bf-97a3-1479be98a596)
+
+      Selanjutnya, masukkan path go pada file ```.bashrc```
+
+      ```
+      cd && sudo nano .bashrc
+      ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/55061603-2cec-4c1e-9adf-f7be809f3d58)
+
+      Masukkan script berikut di paling bawah 
+
+      
+      ```
+      export PATH=$PATH:/usr/local/go/bin
+      ```
+
+      ![7](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/76f56bbf-13db-4d4f-a8ad-56cbc7b9daf8)
+
+      Lakukan refresh terminal
+
+      ```
+      exec bash
+      ```
+      
+      Lalu, cek versi go
+
+      ```
+      go version
+      ```
+
+      ![8](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a665229d-5171-4935-a79d-76868f735cfd)
+      
+      Masuk ke dalam folder golang, lalu buat file ```index.go```
+
+      ```
+      cd golang/ && nano index.go
+      ```
+
+      Lalu masukkan script berikut
+
+      ```
+      package main
+
+      import "fmt"
+      
+      func main() {
+          fmt.Println("Ahmad Fadillah")
+      }
+      ```
+      
+      ![10](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8e5f233b-308d-4387-98dc-0df8c3dfb0c3)
+
+      Simpan filenya, lalu jalankan programnya
+
+      ```
+      go run index.go
+      ```
+
+      ![11](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f58171a1-40d4-45c9-bb71-b0b8c680906b)
+
+      Jika aplikasinya ingin dibuild, jalankan command berikut
+
+      ```
+      go build index.go
+      ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/53abd0a1-badb-4e44-8964-1ec06c5daea6)
+
+      Untuk menjalankannya, jalankan command berikut
+
+      ```
+      ./index.go
+      ```
+
+      ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/168611c8-b962-486e-ada7-fb5dbdc80f20)
