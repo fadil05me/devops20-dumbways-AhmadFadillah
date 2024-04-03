@@ -39,7 +39,41 @@
 
 ## TASK 2: Deploy Aplikasi [wayshub-frontend](https://github.com/dumbwaysdev/wayshub-frontend?tab=readme-ov-file) (NodeJS)
 
-  Untuk cara install NodeJS ada di tugas challange week2 [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/week2/challenge#1-install-nodejs-using-bash-script)
+   Untuk cara install NodeJS ada di tugas challange week2 [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/week2/challenge#1-install-nodejs-using-bash-script)
+   
+   Jika NodeJS sudah terinstall, ganti ke nodejs versi 14 dengan menggunakan command berikut
+
+   ```
+   npm install 14
+   ```
+
+   Jika sudah, cek versi node yang dijalankan dengan menggunakan command berikut
+
+   ```
+   node -v
+   ```
+
+   ![4](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f30dc227-b55a-42d0-b7e6-4fd6e57acc75)
+
+   Lalu jalankan ```nvm install``` dan tunggu sampai selesai
+
+   ![5](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a9eb1ea3-1cd9-4686-a56f-16c6d2b1efb2)
+
+   Jika sudah selesai, run aplikasi dengan menggunakan command berikut
+
+   ```
+   npm run start
+   ```
+
+   ![6](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e5feed43-4c11-4dec-a82e-84199f643322)
+
+   Jika sudah berjalan akan tampil seperti ini
+
+   ![7](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/155ca1b2-4ef8-448d-94d7-66616fbf0f32)
+
+   Buka browser dan cek apakah aplikasi bisa dibuka
+
+   ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/795f8a14-e9a0-4f85-8b7d-5c7b1c3ea06e)
 
   
 
