@@ -102,7 +102,8 @@
   };
   ```
 
-  ![Screenshot 2024-04-03 220451](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2a4e1832-79c9-4e6a-b05d-8a6a86213883)
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/88947921-1cba-4f8b-b252-ddc96e92481f)
+
 
   Jika sudah save dan jalankan program dengan menggunakan command berikut
   
