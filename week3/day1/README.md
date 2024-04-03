@@ -25,7 +25,6 @@
    - Lebih mudah untuk diubah: Setiap layanan dapat diubah secara independen tanpa memengaruhi layanan lain.
    - Lebih mudah untuk diskalakan: Setiap layanan dapat diskalakan secara independen sesuai kebutuhan.
    - Lebih tahan terhadap kegagalan: Jika satu layanan gagal, layanan lain tidak terpengaruh.
-   - Lebih mudah untuk dikembangkan dan dipelihara oleh tim yang berbeda: Setiap layanan dapat dikembangkan dan dipelihara oleh tim yang berbeda.
 
    Kekurangannya:
    - Lebih kompleks untuk dikembangkan dan dipahami: Karena kode terbagi menjadi banyak layanan, pengembangan dan debugging lebih kompleks.
