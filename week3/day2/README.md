@@ -118,3 +118,56 @@
 
 ## TASK 4: Implementasikan loadbalancing kepada aplikasi wayshub yang telah kalian gunakan.
 
+  Pertama, buat tambahan minimal 2 server. Disini saya sudah buat 2 server
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f18e7bd4-0199-4689-88dc-b299588eed4a)
+
+  Deploy aplikasi wayshub ke 2 server tersebut, lalu jalankan.
+  
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c338ef4e-460c-480d-a19d-f71436171b9e)
+
+
+  Edit file conf tadi di TASK no.2
+
+  ```
+  sudo nano reverse-proxy.conf
+  ```
+
+  Lalu edit menjadi seperti ini
+
+  ```
+  upstream fadil {
+          server 192.168.223.130:3000;
+          server 192.168.217.54:3000;
+  }
+  
+  server {
+      server_name fadil.me;
+  
+      location / {
+               proxy_pass http://fadil;
+      }
+  
+  }
+  ```
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a65984b0-17f9-4931-ba5a-c203ce6d62df)
+
+  Simpan dan cek kembali apakah ada error pada confignya
+
+  ```
+  sudo nginx -t
+  ```
+
+  Jika hasilnya seperti ini berarti sudah benar dan tidak ada error
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e34f7ea3-32d7-4ae6-b690-51465ef3c7dc)
+
+  Lakukan reload pada nginx service
+
+
+  ```
+  sudo systemctl reload nginx
+  ```
+
+  Jika sudah, cek lagi di browser
