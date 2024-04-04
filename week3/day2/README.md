@@ -88,9 +88,20 @@
   - Pada bagian file type ganti menjadi All files
   - Pilih file ```hosts```
 
-  
+
+  Tambahkan IP Address dan Hostname
+
+  ```
+  192.168.134.69		fadil.me
+  ```
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0f286774-783a-472f-9145-1f4b74835069)
 
   
+  Jika sudah, simpan dan cek di browser
+
+  
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c06765cb-c6d9-4d55-9fb2-ddb99877e624)
 
   
 
