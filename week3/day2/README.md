@@ -71,6 +71,13 @@
   ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/53b45bf8-4019-418f-9e02-7ab07f65ccd6)
 
 
+  Jika tanpa error, selanjutnya lakukan reload nginx
+
+  ```
+  sudo systemctl reload nginx
+  ```
+
+  
 
 ## TASK 3: Jelaskan apa itu load balance.
 
