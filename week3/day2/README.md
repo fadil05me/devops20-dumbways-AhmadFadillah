@@ -115,19 +115,21 @@
   - Meningkatkan ketersediaan: Jika terjadi masalah pada satu server, load balancer bisa mengalihkan traffic ke server lain sehingga website atau aplikasi tetap bisa diakses.
 
   
-
 ## TASK 4: Implementasikan loadbalancing kepada aplikasi wayshub yang telah kalian gunakan.
 
-  Pertama, buat tambahan minimal 2 server. Disini saya sudah buat 2 server
+  Pertama, buat server minimal 2 server. Disini saya sudah buat 3 server:
+  - svr1 untuk nginx server
+  - svr2 untuk server nodejs pertama
+  - svr3 untuk server nodejs kedua
 
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f18e7bd4-0199-4689-88dc-b299588eed4a)
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a6cc3577-d661-415e-ab5f-ef5fba7935d3)
 
   Deploy aplikasi wayshub ke 2 server tersebut, lalu jalankan.
   
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c338ef4e-460c-480d-a19d-f71436171b9e)
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c1b70575-34de-4c60-b093-81b6271e70af)
 
 
-  Edit file conf tadi di TASK no.2
+  Edit file conf tadi seperti di TASK no.2
 
   ```
   sudo nano reverse-proxy.conf
@@ -137,8 +139,8 @@
 
   ```
   upstream fadil {
-          server 192.168.223.130:3000;
-          server 192.168.217.54:3000;
+          server 192.168.217.25:3000;
+          server 192.168.211.62:3000;
   }
   
   server {
@@ -151,7 +153,9 @@
   }
   ```
 
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a65984b0-17f9-4931-ba5a-c203ce6d62df)
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e5eb6bd9-b58b-40e5-b5ad-cf6e87dae53b)
+
 
   Simpan dan cek kembali apakah ada error pada confignya
 
@@ -159,15 +163,33 @@
   sudo nginx -t
   ```
 
-  Jika hasilnya seperti ini berarti sudah benar dan tidak ada error
 
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e34f7ea3-32d7-4ae6-b690-51465ef3c7dc)
-
-  Lakukan reload pada nginx service
+  Jika tidak ada error lakukan reload pada nginx service
 
 
   ```
   sudo systemctl reload nginx
   ```
 
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2c511f25-4a93-4a91-a9b8-d2b0cd8093af)
+
+
   Jika sudah, cek lagi di browser
+
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3bc89395-1179-4c9a-9913-7dcfb83db8f1)
+
+
+  Sekarang, coba matikan server pada svr2 (server pertama) lalu refresh browser
+
+  
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a21e8a15-3a70-4097-afda-3e7ab8babcd5)
+
+
+  Jika masih berjalan coba matikan svr3 (server kedua) lalu refresh browser
+
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/706b77b7-8a65-46ba-9bfc-caaab8902fac)
+
+
+  Jika hasilnya error 502 Bad Gateway, artinya sudah berjalan dengan benar.
