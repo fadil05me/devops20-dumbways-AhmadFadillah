@@ -35,7 +35,7 @@
 
   ```
   server {
-      server_name fadil.me;
+      server_name fadil05.me;
   
       location / {
                proxy_pass http://192.168.134.69:3000;
@@ -43,7 +43,7 @@
   }
   ```
 
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/88e796f6-327e-43f7-8d5d-e3315cfbda16)
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/44b88362-e7f2-4454-bb5b-21a4815a8ee1)
 
   
   Jika sudah disimpan, jalankan command berikut untuk mengedit file ```nginx.conf```
@@ -92,18 +92,18 @@
   Tambahkan IP Address dan Hostname
 
   ```
-  192.168.134.69		fadil.me
+  192.168.134.69		fadil05.me
   ```
 
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0f286774-783a-472f-9145-1f4b74835069)
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/040690fc-c5ea-41cc-bfcf-84cbdc250825)
 
   
   Jika sudah, simpan dan cek di browser
 
   
-  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c06765cb-c6d9-4d55-9fb2-ddb99877e624)
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9b3acb49-2f4e-4ed4-a386-d616df98878a)
 
-  
+
 
 ## TASK 3: Jelaskan apa itu load balance.
 
