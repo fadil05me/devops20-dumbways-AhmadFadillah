@@ -76,6 +76,8 @@
   ```
   sudo systemctl reload nginx
   ```
+  
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a8599609-eb5a-4455-a3fc-99c690c9c472)
 
   
 
