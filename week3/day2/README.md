@@ -79,6 +79,19 @@
   
   ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a8599609-eb5a-4455-a3fc-99c690c9c472)
 
+
+  Selanjutnya, edit file ```hosts```. Disini saya menggunakan windows.
+  Caranya:
+  - Klik kanan aplikasi Notepad lalu pilih "Run as administrator"
+  - Pilih File -> Open
+  - Lalu pergi ke ```C:\Windows\System32\drivers\etc```
+  - Pada bagian file type ganti menjadi All files
+  - Pilih file ```hosts```
+
+  
+
+  
+
   
 
 ## TASK 3: Jelaskan apa itu load balance.
