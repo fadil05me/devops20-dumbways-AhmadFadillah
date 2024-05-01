@@ -116,9 +116,77 @@
   ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e9fd5aa5-4188-458e-ad26-25f4e3487daf)
 
 
-## TASK 3: Deploy aplikasi Dumbflix-Frontend menggunakan nodejs versi 14.x
+## TASK 3: Deploy aplikasi Dumbflix-Frontend menggunakan nodejs versi 14.x.
 
+  1. Install NVM
 
+  ```
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0d495fa4-4ff0-4d9f-9939-16ea244320de)
+
+  
+  2. Install Nodejs versi 14. Tunggu sampai selesai.
+
+  ```
+  nvm i 14
+  ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/86b35f58-f885-4185-b97c-6a5c030c2cde)
+
+  3. Jika sudah, cek versinya.
+
+  ```
+  npm -v; node -v
+  ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b3ffd450-a953-4f9c-8396-412c5a11344b)
 
 
 ## TASK 4: Clone repository Dumbflix-frontend lalu deploy aplikasinya menggunakan PM2
+
+  1. Clone repo dumbflix-frontend.
+
+  ```
+  git clone https://github.com/dumbwaysdev/dumbflix-frontend.git
+  ```
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2c836498-694e-41c7-8184-59e645d7cab9)
+
+  2. Lakukan ```npm i```, lalu tunggu sampai selesai.
+
+  
+  3. Jalankan dengan menggunakan ```npm start```
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/99ca8b3e-7cbc-4acf-885e-99f89eae4e50)
+
+  4. Jika sudah coba diakses menggunakan browser.
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/522209a0-b58d-479a-b48e-61632fa752e0)
+
+  5. Install pm2.
+
+  ```
+  npm i pm2 -g
+  ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2adfb51b-4b87-49ae-8d1c-17c4917da8eb)
+
+  6. Generate file ecosystem.
+  ```
+  pm2 ecosystem simple
+  ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8920fd0f-b7d0-4ca4-a096-cdc9cb6d111b)
+
+  7. Edit file ecosystem.config.js
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9b63f9b7-46bc-4990-86be-829cfaf78c25)
+
+  8. Jalankan menggunakan pm2
+
+  ```
+  pm2 start ecosystem.config.js
+  ```
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f81e141b-19d6-45e6-84ff-32696262759f)
+
+  9. Akses lagi menggunakan browser.
+
+  ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0c214d6f-c32e-47a8-babd-7680b64bad3a)
+
