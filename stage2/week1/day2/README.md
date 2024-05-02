@@ -57,7 +57,7 @@
   ```
   ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cb1414e6-aef8-4439-b345-199a04b6df57)
 
-  Sekarang akses websitenya menggunakan browser. <a href="http://fadil.studentdumbways.my.id/" target="_blank">fadil.studentdumbways.my.id</a>
+  Sekarang akses websitenya menggunakan browser. <a href="http://fadil.studentdumbways.my.id/">fadil.studentdumbways.my.id</a>
 
   ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8ab4b5cb-d3f5-4e45-8857-1bc0a38f5adc)
   
