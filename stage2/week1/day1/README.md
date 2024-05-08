@@ -1,4 +1,4 @@
-# DAILY TASK DAY 1 - WEEK 1
+# DAILY TASK | DAY 1 - WEEK 1
 
 ## TASK 1: Jelasakan langkah-langkah pembuatan VM di BiznetGio
 
