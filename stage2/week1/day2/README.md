@@ -114,6 +114,12 @@
     ```
     ![Screenshot 2024-05-07 191750](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b40501f1-976f-4687-92bc-e7cc0ea44f36)
 
+  - Copy file .env.example ke .env
+    ```
+    cp .env.example .env
+    ```
+    ![Screenshot 2024-05-07 211724](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/91eb05d6-5357-48c3-8dc1-d5a711d9ae7f)
+
   - Install nvm
     ```
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash; exec bash
@@ -217,5 +223,23 @@
   - Cek di browser
     ![Screenshot 2024-05-07 200212](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9c9e96d7-4c4c-40d0-9534-d5fefc97aeea)
 
-  - 
+  - Login ke server gateway (frontend). Lalu edit file ```dumbflix-frontend/src/config/api.js```
+    ```
+    nano ~/dumbflix-frontend/src/config/api.js
+    ```
+    ![Screenshot 2024-05-07 200828](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6e7a9a09-7710-424d-a30f-99dcf5e47a58)
+
+  - Ganti pada baseURL dengan alamat dari server ```appserver```
+    ![Screenshot 2024-05-07 201313](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ed879b1d-295d-4b06-be49-49d33980fc36)
+
+  - Restart pm2
+    ```
+    pm2 restart ecosystem.config.js
+    ```
+    ![Screenshot 2024-05-07 201525](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cfbc0ac3-dc61-4b07-9670-b96a61ccbf92)
+
+  - Tes Register lalu login. [fadil.studentdumbways.my.id](https://fadil.studentdumbways.my.id/)
+    ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a44d560b-edd5-4aad-8e78-073f41375349)
+
+
 
