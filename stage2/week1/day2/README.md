@@ -108,3 +108,114 @@
     
 ## TASK 2: Deploy aplikasi Wayshub-Backend 
 
+  - Clone repo <a href="https://github.com/dumbwaysdev/dumbflix-backend">dumbflix-backend</a>
+    ```
+    git clone https://github.com/dumbwaysdev/dumbflix-backend
+    ```
+    ![Screenshot 2024-05-07 191750](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b40501f1-976f-4687-92bc-e7cc0ea44f36)
+
+  - Install nvm
+    ```
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash; exec bash
+    ```
+    ![Screenshot 2024-05-07 191950](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1b2b22d5-349d-4da9-8298-5107cc0d5227)
+
+  - Install npm v14
+    ```
+    nvm i 14
+    ```
+    ![Screenshot 2024-05-07 192935](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/62ba8641-49e9-4703-a963-15938178b861)
+
+  - Install pm2
+    ```
+    npm i pm2 -g
+    ```
+    ![Screenshot 2024-05-07 193316](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c27d12e7-d7c9-4943-a70a-21e8f5d38468)
+
+  - Masuk ke folder ```dumbways-backend```. Lalu edit file ```config.json```
+    ```
+    nano config/config.json
+    ```
+    sesuaikan dengan user dan database yang telah dibuat
+    ![Screenshot 2024-05-07 193502](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e0d5fd9a-eb6a-49b5-a827-2b8229ef2853)
+  
+  - Install ```sequelize```
+    ```
+    npm i sequelize-cli -g
+    ```
+    ![Screenshot 2024-05-07 193847](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/713b5616-bb4f-4955-abd0-82fea426202e)
+  
+  - Jalankan ```npm i```
+    ![Screenshot 2024-05-07 194206](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/719a393c-5232-4f56-ae21-71177bbdbf9c)
+
+  - Lakukan migrate database menggunakan sequelize
+    ```
+    sequelize db:migrate
+    ```
+    ![Screenshot 2024-05-07 194450](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c7a0c520-7a0c-416c-ab0d-35ec6ddc76a0)
+
+  - Setup pm2
+    ```
+    pm2 init simple
+    ```
+    ![Screenshot 2024-05-07 194531](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7b55aa33-c954-41bc-8f62-74b05e2d34b5)
+
+  - Edit file ```ecosystem.config.js```. Sesuaikan dengan kebutuhan 
+    ```
+    nano ecosystem.config.js
+    ```
+    ![Screenshot 2024-05-07 194616](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/74b141f2-d2b3-4954-a48d-39b373f55011)
+
+  - Jalankan pm2
+    ```
+    pm2 start ecosystem.config.js
+    ```
+    ![Screenshot 2024-05-07 194711](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8a0febf5-05d7-40fb-a061-3bcd0396ddb2)
+
+  - Install Nginx
+    ```
+    sudo apt install nginx -y
+    ```
+    ![Screenshot 2024-05-07 194849](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b6e54dcf-ec7d-42c2-83c2-e412eca872de)
+
+  - Buat folder baru di ```/etc/nginx```
+    ```
+    cd /etc/nginx; sudo mkdir apps; cd apps;
+    ```
+    ![Screenshot 2024-05-07 195017](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/77dcb568-6941-4bc3-9524-2e1be8513e15)
+
+  - Buat file dengan nama ```api.fadil.studentdumbways.my.id```
+    ```
+    sudo nano api.fadil.studentdumbways.my.id
+    ```
+    ![Screenshot 2024-05-07 195442](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0b8e0a9b-11d3-4e05-aa95-7869ff2d547f)
+
+  - Edit file config nginx
+    ```
+    sudo nano /etc/nginx/nginx.conf
+    ```
+    ![Screenshot 2024-05-07 195546](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/27e01a50-3bf1-4cfc-8b70-e91316fbad79)
+
+  - Cek file config nginx lalu reload nginx
+    ```
+    sudo nginx -t; sudo systemctl reload nginx
+    ```
+    ![Screenshot 2024-05-07 195638](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6f83aae2-2e25-40bb-bede-a2009813111d)
+
+  - Install certbot
+    ```
+    sudo snap install --classic certbot; sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    ```
+    ![Screenshot 2024-05-07 195902](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ff3370ad-2a9e-4f0c-806b-c4c61da9c55c)
+
+  - Jalankan certbot
+    ```
+    sudo certbot
+    ```
+    ![Screenshot 2024-05-07 200041](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6a31f4c8-5a79-409c-bf25-2020a9234d53)
+
+  - Cek di browser
+    ![Screenshot 2024-05-07 200212](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9c9e96d7-4c4c-40d0-9534-d5fefc97aeea)
+
+  - 
+
