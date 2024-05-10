@@ -152,6 +152,7 @@
     ![Screenshot 2024-05-07 193847](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/713b5616-bb4f-4955-abd0-82fea426202e)
   
   - Jalankan ```npm i```
+    
     ![Screenshot 2024-05-07 194206](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/719a393c-5232-4f56-ae21-71177bbdbf9c)
 
   - Lakukan migrate database menggunakan sequelize
@@ -178,37 +179,7 @@
     ```
     ![Screenshot 2024-05-07 194711](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8a0febf5-05d7-40fb-a061-3bcd0396ddb2)
 
-  - Install Nginx
-    ```
-    sudo apt install nginx -y
-    ```
-    ![Screenshot 2024-05-07 194849](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b6e54dcf-ec7d-42c2-83c2-e412eca872de)
-
-  - Buat folder baru di ```/etc/nginx```
-    ```
-    cd /etc/nginx; sudo mkdir apps; cd apps;
-    ```
-    ![Screenshot 2024-05-07 195017](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/77dcb568-6941-4bc3-9524-2e1be8513e15)
-
-  - Buat file dengan nama ```api.fadil.studentdumbways.my.id```
-    ```
-    sudo nano api.fadil.studentdumbways.my.id
-    ```
-    ![Screenshot 2024-05-07 195442](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0b8e0a9b-11d3-4e05-aa95-7869ff2d547f)
-
-  - Edit file config nginx
-    ```
-    sudo nano /etc/nginx/nginx.conf
-    ```
-    ![Screenshot 2024-05-07 195546](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/27e01a50-3bf1-4cfc-8b70-e91316fbad79)
-
-  - Cek file config nginx lalu reload nginx
-    ```
-    sudo nginx -t; sudo systemctl reload nginx
-    ```
-    ![Screenshot 2024-05-07 195638](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6f83aae2-2e25-40bb-bede-a2009813111d)
-
-  - Install certbot
+  - Masuk ke server Gateway, lalu generate ssl certificate baru.
     ```
     sudo snap install --classic certbot; sudo ln -s /snap/bin/certbot /usr/bin/certbot
     ```
@@ -221,6 +192,7 @@
     ![Screenshot 2024-05-07 200041](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6a31f4c8-5a79-409c-bf25-2020a9234d53)
 
   - Cek di browser
+    
     ![Screenshot 2024-05-07 200212](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9c9e96d7-4c4c-40d0-9534-d5fefc97aeea)
 
   - Login ke server gateway (frontend). Lalu edit file ```dumbflix-frontend/src/config/api.js```
