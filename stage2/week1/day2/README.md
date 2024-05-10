@@ -179,13 +179,13 @@
     ```
     ![Screenshot 2024-05-07 194711](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8a0febf5-05d7-40fb-a061-3bcd0396ddb2)
 
-  - Masuk ke server Gateway, lalu generate ssl certificate baru.
-    ```
-    sudo snap install --classic certbot; sudo ln -s /snap/bin/certbot /usr/bin/certbot
-    ```
-    ![Screenshot 2024-05-07 195902](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ff3370ad-2a9e-4f0c-806b-c4c61da9c55c)
+  - Masuk ke cloudflare, lalu buat subdomain baru dengan nama ```api.fadil```.
+    Pointing subdomain tersebut ke ip address dari server gateway.
 
-  - Jalankan certbot
+    ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2cfd8cf-012f-46f2-afd7-e0fd381bbe8b)
+
+  - Masuk ke server Gateway, lalu generate ssl certificate baru.
+    
     ```
     sudo certbot
     ```
@@ -201,7 +201,7 @@
     ```
     ![Screenshot 2024-05-07 200828](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6e7a9a09-7710-424d-a30f-99dcf5e47a58)
 
-  - Ganti pada baseURL dengan alamat dari server ```appserver```
+  - Ganti pada baseURL dengan alamat ip + port dari backend-dumbflix di server ```appserver```
     ![Screenshot 2024-05-07 201313](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ed879b1d-295d-4b06-be49-49d33980fc36)
 
   - Restart pm2
