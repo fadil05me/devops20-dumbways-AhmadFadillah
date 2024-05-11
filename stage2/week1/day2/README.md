@@ -184,24 +184,36 @@
 
     ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2cfd8cf-012f-46f2-afd7-e0fd381bbe8b)
 
-  - Masuk ke server Gateway, lalu generate ssl certificate baru.
+  - Masuk ke server Gateway, lalu buat file configurasi nginx untuk subdomain ```api.fadil```.
+    ```
+    sudo nano /etc/nginx/site/api
+    ```
+
+    ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b4ee70f0-5fa6-45c6-ba74-72fe63da8a83)
+    Sesuaikan IP address dengan IP server Appserver.
+
+  
+  - Setelah itu, generate ssl certificate baru.
     
     ```
     sudo certbot
     ```
-    ![Screenshot 2024-05-07 200041](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6a31f4c8-5a79-409c-bf25-2020a9234d53)
+    ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/5f355cc5-8460-48ac-887a-b9a6f68ee1d5)
 
-  - Cek di browser
+    Nantinya akan muncul list domain / subdomain yang terpointing seperti gambar diatas. Lalu pilih subdomain yang barusan dibuat.
+
+    
+  - Jika sudah, Cek di browser. https://api.fadil.studentdumbways.my.id
     
     ![Screenshot 2024-05-07 200212](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9c9e96d7-4c4c-40d0-9534-d5fefc97aeea)
 
-  - Login ke server gateway (frontend). Lalu edit file ```dumbflix-frontend/src/config/api.js```
+  - Selanjutnya edit file ```dumbflix-frontend/src/config/api.js```
     ```
     nano ~/dumbflix-frontend/src/config/api.js
     ```
     ![Screenshot 2024-05-07 200828](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6e7a9a09-7710-424d-a30f-99dcf5e47a58)
 
-  - Ganti pada baseURL dengan alamat ip + port dari backend-dumbflix di server ```appserver```
+  - Ganti pada baseURL dengan URL subdomain ```api.fadil``` tadi.
     ![Screenshot 2024-05-07 201313](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ed879b1d-295d-4b06-be49-49d33980fc36)
 
   - Restart pm2
@@ -210,7 +222,7 @@
     ```
     ![Screenshot 2024-05-07 201525](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cfbc0ac3-dc61-4b07-9670-b96a61ccbf92)
 
-  - Tes Register lalu login. [fadil.studentdumbways.my.id](https://fadil.studentdumbways.my.id/)
+  - Tes Register. [fadil.studentdumbways.my.id](https://fadil.studentdumbways.my.id/)
     ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a44d560b-edd5-4aad-8e78-073f41375349)
 
 
