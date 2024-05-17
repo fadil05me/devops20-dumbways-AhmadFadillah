@@ -1,17 +1,23 @@
+Sebelum mengerjakan tugas, mohon persiapkan :
+- Akun Github dan buat repository dengan judul "devops20-dumbways-<nama kalian>"
+- Gunakan file README.md untuk isi tugas kalian
+- Buatlah langkah-langkah pengerjaan tugas beserta dokumentasinya
+
+Repository && Reference:
+[wget spider](https://www.labnol.org/software/wget-command-examples/28750/)
+
+
+Tasks :
 [ Jenkins ]
-- Jelasakan langkah-langkah melakukan rebuild server BiznetGio, dan ubah menggunakan os ubuntu22
-- Installasi Jenkins on top Docker or native
-- Setup SSH-KEY di local server jenkins kalian, agar dapat login ke dalam server menggunakan SSH-KEY 
-- Reverse Proxy Jenkins
-  - gunakan domain ex. pipeline-team1.studentdumbways.my.id
-  - reverse proxy sesuaikan dengan ketentuan yang ada di dalam Jenkins documentation
-- Buatlah beberapa Job untuk aplikasi kalian
-  - Job Backend
+- Buat akun di gitlab.com
+- push SCM kalian dari local-server ke gitlab
+- Buatlah beberapa Job menggunakan gitlabci untuk aplikasi kalian
+  - Job Frontend
   - Untuk script CICD atur flow pengupdate an aplikasi se freestyle kalian dan harus mencangkup
      - Pull dari repository
      - Dockerize/Build aplikasi kita
-     - Push ke Docker Hub
+     - push image ke docker hub
      - Test application
-     - Deploy aplikasi on top Docker
-- Auto trigger setiap ada perubahan di SCM
-- Buat job notification ke discord
+     - pull new image
+     - Deploy application
+- GitlabCI notification to discord
