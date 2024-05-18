@@ -247,7 +247,7 @@ git config --global user.email "alamat email" && git config --global user.name "
 Selanjutnya pergi ke folder wayshub-backend dan buat file baru dengan nama Jenkinsfile. Berikut adalah isi dari file Jenkinsfile. Silahkan edit sesuai kebutuhan
 ```
 def secret = 'k2-appserver'
-def server = 'k2@103.127.134.73'
+def server = 'k2@103.xxx.xxx.xxx'
 def directory = '/home/k2/wayshub-backend'
 def branch = 'master'
 def namebuild = 'wayshub-backend:1.0'
