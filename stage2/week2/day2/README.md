@@ -190,7 +190,301 @@ Selanjutnya ke Plugins -> Available Plugins -> cari ```SSH Agent``` -> Install
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bcc039c2-2e55-455b-8a25-4a6c1895cbce)
 
-Jika terdapat error, Install ulang pluginnya sampai berhasil. Pastikan ceklist pada ```Restart Jenkins when installation is complete...```
+Jika terdapat error, Install ulang pluginnya sampai berhasil. Dan pastikan ceklist pada ```Restart Jenkins when installation is complete...```
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e6a2300f-3be2-4602-afe4-21c599eea567)
 
+Satu lagi install Plugin ```Discord Notifier```. Caranya sama seperti tadi.
+
+Kembali ke Manage Jenkins -> Credentials
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c802ddb5-5ca2-4615-b860-66c2ef8f04b5)
+
+Lalu pilih ```Add Credentials```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/98f47676-3fb7-4461-915c-c4c3e0adcfa1)
+
+- Pada bagian Kind, pilih ```SSH Username with private key```.
+- Pada bagian ID, masukan id yang nantinya akan dipakai pada file Jenkinsfile.
+- Pada bagian Username, masukkan username dari server backend.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/55671652-72f7-4664-bc95-b534a20e5ae0)
+
+- Pada bagian Privat Key, Klik ```Enter Directly``` Lalu klik ```Add```. Masukkan privat key dari server backend.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3229f231-b365-4333-b4cd-26664b981b09)
+
+Jika sukses, akan tampil seperti ini.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9c920886-edae-43fe-bf47-830e055aac0d)
+
+Masuk ke github, lalu tambahkan Public key dari ssh tadi.
+Ke Settings -> SSH and GPG keys -> New SSH Key.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bf39b46d-8d64-4df2-addb-ffcee3bda3b9)
+
+Masukkan Public keynya lalu klik ```Add SSH Key```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8ef840b7-1fed-435d-a9ab-555896be1fac)
+
+Jika sudah, tes koneksi ke github.
+```ssh -T git@github.com```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ae592f0c-2783-46a9-be86-58e9158c88bc)
+
+Selanjutnya buat repository baru di github.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/50d9bcef-f113-4ec5-b73e-12ca183b5f08)
+
+Jika sudah dibuat, jalankan command berikut.
+```
+git config --global user.email "alamat email" && git config --global user.name "username github"
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9294598e-ab05-4e65-9540-2a9020d034c8)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e6f205d2-4d4b-470a-9e7f-0fa66b7f5f7c)
+
+
+Selanjutnya pergi ke folder wayshub-backend dan buat file baru dengan nama Jenkinsfile. Berikut adalah isi dari file Jenkinsfile. Silahkan edit sesuai kebutuhan
+```
+def secret = 'k2-appserver'
+def server = 'k2@103.127.134.73'
+def directory = '/home/k2/wayshub-backend'
+def branch = 'master'
+def namebuild = 'wayshub-backend:1.0'
+
+pipeline {
+    agent any
+    stages {
+        stage ('pull new code') {
+            steps {
+                sshagent([secret]) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ${server} << EOF
+                            cd ${directory}
+                            git pull origin ${branch}
+                            echo "Selesai Pulling!"
+                            exit
+                        EOF
+                    """
+                }
+            }
+        }
+
+        stage ('build the code') {
+            steps {
+                sshagent([secret]) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ${server} << EOF
+                            cd ${directory}
+                            docker build -t ${namebuild} .
+                            echo "Selesai Building!"
+                            exit
+                        EOF
+                    """
+                }
+            }
+        }
+
+        stage ('deploy') {
+            steps {
+                sshagent([secret]) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ${server} << EOF
+                            cd ${directory}
+                            docker compose down
+                            docker compose up -d
+                            echo "Selesai Men-Deploy!"
+                            exit
+                        EOF
+                    """
+                }
+
+            }
+        }
+    }
+}
+
+```
+
+Jika sudah simpan dan jalankan command berikut, sesuaikan dengan nama branch dan repository yang barusan dibuat.
+```
+git remote set-url branch git-repo && git add .
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cea3f289-03de-4169-bcf6-980455dbca83)
+
+```
+git commit -m "chore: Adding Jenkins and Docker" && git push origin main
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cf4a1894-272f-4215-9ca4-b737dfdfa3d2)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4294dde1-d8bf-4610-9a17-dfc3866b72d5)
+
+Cek kembali repository tadi.
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/d274f07d-489b-4a15-8469-c0a786da998d)
+
+Ke Dashboard Jenkins. Klik ```New Item```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/255a215b-84b3-4aeb-bb1a-4308ab6dccc7)
+
+Masukkan nama yang diinginkan, lalu pilih yang ```Pipeline``` -> Klik OK.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9b178d64-06d0-4658-9929-d574dc910d8b)
+
+Ceklist pada bagian ```GitHub hook triger for GITScm polling.```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/70794b98-f54a-4155-95a5-9f9bdb6cafca)
+
+Scroll kebawah,
+- Pada bagian Definition ganti menjadi ```Pipeline script from SCM```
+- Pada bagian SCM ganti menjadi ```Git```
+- Pada bagian Repository, masukkan alamat repository tadi.
+- Pada bagian Credentials, pilih credentials yang barusan dibuat.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/13996710-afae-4361-83ed-62a3909f230a)
+
+Scroll kebawah lagi, Sesuaikan untuk branch dan Script path.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/97ea377d-493f-4668-8dba-1fc392407a59)
+
+Jika sudah, coba untuk menjalankannya dengan klik ```Build Now```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/eec0fc0f-87d0-468f-8842-29a34797c279)
+
+Jika sukses tanpa error, akan tampil seperti ini, jika ada error cek kembali file ```Jenkinsfile``` tadi.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c9c0e395-2a4c-4e02-94cb-6e6bdce2b1b6)
+
+Selanjutnya Login ke docker hub dan buat repository baru. Pastikan visibility ```Public```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c69e73f2-db12-43eb-ac41-9473dd503cb3)
+
+Buat credentials baru di jenkins. Masukkan username dan password dari akun docker. Dan pada bagian ID masukkan ```docker-hub-credentials```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6e22d274-28e4-44a0-b8c8-a017f2dcf3b6)
+
+Jika sudah, edit kembali script Jenkinsfile tadi. Lalu tambahkan stage Test, Push ke Docker hub dan tambakan script notif ke Discord. _Sesuaikan dengan Kebutuhan_.
+
+```
+def secret = 'k2-appserver'
+def server = 'k2@103.xxx.xxx.xxx'
+def directory = '/home/k2/wayshub-backend'
+def branch = 'master'
+def namebuild = 'wayshub-backend:1.0'
+def dockerHubCredentials = 'docker-hub-credentials'
+def dockerHubRepo = 'fadil05me/wayshub-backend'
+
+pipeline{
+    agent any
+    stages{
+        stage ('pull new code'){
+            steps{
+                sshagent([secret]){
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    git pull origin ${branch}
+                    echo "Selesai Pulling!"
+                    exit
+                    EOF"""
+                }
+            }
+        }
+
+        stage ('build the code'){
+            steps{
+                sshagent([secret]){
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    docker build -t ${namebuild} .
+                    echo "Selesai Building!"
+                    exit
+                    EOF"""
+                }
+            }
+        }
+
+        stage ('test the code'){
+            steps{
+                sshagent([secret]){
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                        cd ${directory}
+                        docker run -d --name testcode -p 5009:5000 ${namebuild}
+                        if wget --spider -q --server-response http://127.0.0.1:5009/ 2>&1 | grep '404 Not Found'; then
+                            echo "Webserver is up and returning 404 as expected!"
+                        else
+                            echo "Webserver is not responding with expected 404, stopping the process."
+                            docker rm -f testcode
+                            exit 1
+                        fi
+                        docker rm -f testcode
+                        echo "Selesai Testing!"
+                        exit
+                    EOF"""
+                }
+            }
+        }
+
+        stage ('deploy'){
+            steps {
+                sshagent([secret]){
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    docker compose down
+                    docker compose up -d
+                    echo "Selesai Men-Deploy!"
+                    exit
+                    EOF"""
+                }
+            }
+        }
+
+        stage('push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: dockerHubCredentials, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sshagent([secret]) {
+                        sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                        cd ${directory}
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                        docker tag ${namebuild} ${dockerHubRepo}:latest
+                        docker push ${dockerHubRepo}:latest
+                        echo "Selesai Push ke Docker Hub!"
+                        exit
+                        EOF"""
+                    }
+                }
+            }
+        }
+
+        stage('push notif to discord') {
+            steps {
+                discordSend description: 'test desc', footer: '', image: '', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Discord Notif', webhookURL: 'https://discord.com/api/webhooks/1240246717505474601/eSqwzll5dezuF9pzrq9BPjq_-QCsaAmV6-vHVvH_HKoodz2XA4GLgomv03OQT7_mojik'
+            }
+        }
+
+    }
+}
+```
+
+Jika sudah, Simpan filenya dan Push kembali ke github.
+
+Test kembali scriptnya dengan klik ```Build Now``` di jenkins.
+
+Jika masih ada error edit kembali sampai sudah tidak ada error.
+
+Selanjutnya ke github repository tadi, lalu Klik ```Settings```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4a6afebc-1511-41b1-938c-9bf4a871ee12)
+
+Ke bagian Webhook -> Add webhook.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8adc5e7f-aadb-4981-87b1-1a8671579e88)
+
+Masukkan Payload URL dengan alamat URL dari jenkins + ditambah ```/github-webhook```. Lalu klik Add Webhook.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/95eedf9b-1a48-4b63-a63f-2ac74dc69701)
+
+Jika sudah, coba buat perubahan pada backend dan push kembali ke github.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/82bc8675-c0d1-429c-a28c-b56787281329)
+
+Lalu cek lagi di jenkins, maka proses build sudah otomatis berjalan ketika user push ke github.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2dad2b8d-6fd9-450c-bef1-1c13544ea59e)
