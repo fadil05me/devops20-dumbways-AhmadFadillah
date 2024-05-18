@@ -320,7 +320,9 @@ git commit -m "chore: Adding Jenkins and Docker" && git push origin main
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cf4a1894-272f-4215-9ca4-b737dfdfa3d2)
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4294dde1-d8bf-4610-9a17-dfc3866b72d5)
 
+
 Cek kembali repository tadi.
+
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/d274f07d-489b-4a15-8469-c0a786da998d)
 
 Ke Dashboard Jenkins. Klik ```New Item```.
