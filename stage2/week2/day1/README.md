@@ -1,38 +1,34 @@
-Sebelum mengerjakan tugas, mohon persiapkan :
-- Akun Github dan buat repository dengan judul "devops20-dumbways-<nama kalian>"
-- Gunakan file README.md untuk isi tugas kalian
-- Buatlah langkah-langkah pengerjaan tugas beserta dokumentasinya
+# DAILY TASK - DAY 1 - WEEK 2
 
-Gunakan vm Appserver kalian diskusikan saja ingin menggunakan vm siapa di dalam team
+## DOCKER
 
-Repository && Reference:
-[Wayshub Backend](https://github.com/dumbwaysdev/wayshub-backend.git)
-[Wayshub Frontend](https://github.com/dumbwaysdev/wayshub-frontend.git)
-[Certbot](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
-[PM2 Runtime With Docker](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs)
-[Cloudflare](https://dash.cloudflare.com/0d0e2eb306a3b985375cf565cb4ce3fc/studentdumbways.my.id/dns/records)
-[Wildcard SSL](https://www.bjornjohansen.com/wildcard-certificate-letsencrypt-cloudflare)
+Pertama kita lakukan rebuild server.
 
-Tasks :
-[ Docker ]
-- Jelasakan langkah-langkah melakukan rebuild server BiznetGio, dan ubah menggunakan os ubuntu 22
-- Setelah server sudah selesai ter rebuild, buatlah suatu user baru dengan nama **team kalian** .
-- Buatlah bash script se freestyle mungkin untuk melakukan installasi docker. 
-- Deploy aplikasi Web Server, Frontend, Backend, serta Database on top `docker compose`
-  - Buat suatu docker compose yang berisi beberapa service kalian
-    - Web Server
-    - Frontend
-    - Backend
-    - Database
-  - Di dalam docker-compose file buat suatu custom network dengan nama **team kalian**, lalu pasang ke setiap service yang kalian miliki.
-  - Deploy database terlebih dahulu menggunakan mysql  dan jangan lupa untuk pasang volume di bagian database.
-  - Untuk building image frontend dan backend sebisa mungkin buat dockerized dengan image sekecil mungkin. dan jangan lupa untuk sesuaikan configuration dari backend ke database maupun frontend ke backend sebelum di build menjadi docker images.
-  - Untuk Web Server buatlah configurasi reverse-proxy menggunakan nginx on top docker.
-    - **SSL CLOUDFLARE OFF!!!**
-    - Gunakan docker volume untuk membuat reverse proxy
-    - SSL sebisa mungkin gunakan wildcard
-    - Untuk DNS bisa sesuaikan seperti contoh di bawah ini
-      - Frontend team1.studentdumbways.my.id
-      - Backend api.team1.studentdumbways.my.id
-  - Push image ke docker registry kalian masing".
-- Aplikasi dapat berjalan dengan sesuai seperti melakukan login/register.
+Masuk ke dashboard biznetgio -> Pilih server mana yang ingin di rebuild -> Klik Stop.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8119bc8b-15ae-4dd3-9cd1-30a8b04761c4)
+
+Jika server sudah stop, Klik tombol ```Rebuild```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2aa0671f-fb18-4169-82f7-f5f644046414)
+
+Selanjutnya pilih OS yang diinginkan, Lalu klik ```Confirm```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/58f65d20-39bc-40e4-ba70-eaad160f82dd)
+
+Jika sudah benar, Klik ```Rebuild```.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/319dca25-2244-4e04-a1f3-6e70681429a6)
+
+Tunggu sampai proses rebuild selesai, lakukan _Refresh_ secara berkala. Jika sudah berhasil statusnya akan menjadi _Active_.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1fd8cbfb-1979-42ef-b6a3-348bb6e1325a)
+
+Jika sudah aktif, konek ke server menggunakan SSH. Lalu buat user baru.
+```
+sudo adduser namauser
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/368be14d-e26d-4405-9314-2fae9ccb0ca9)
+
+Lakukan setting SSH Key user baru tadi. Untuk caranya sudah pernah dibahas di Week 1 - Day 1 ada di [SINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/stage2/week1/day1).
+
