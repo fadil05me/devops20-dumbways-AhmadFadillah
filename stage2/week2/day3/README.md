@@ -1,4 +1,4 @@
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/af983d41-e95b-489f-aa6f-0dba0b9664c2)# DAILY TASK - DAY 2 - WEEK 2
+# DAILY TASK - DAY 2 - WEEK 2
 
 ## CICD Using GitlabCI
 
