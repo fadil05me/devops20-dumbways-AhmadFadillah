@@ -67,7 +67,7 @@ Copy paste password tersebut ke browser tadi, lalu klik continue
 
 Pilih yang ```install suggested plugins```
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8643114d-627e-4785-bc30-f5ffc8c85418)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1e180de0-c7f7-4754-9e56-baf7aec64148)
 
 Lalu tunggu sampai proses setup selesai
 
@@ -77,7 +77,7 @@ Selanjutnya, buat akun admin
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f8fc93ed-82cd-4a12-a7e6-782b06e8a6f4)
 
-Klik save
+Klik Save and Continue
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cd25978a-0a2b-43d4-afcd-cbe9f286f8a3)
 
@@ -85,7 +85,9 @@ Proses setup selesai
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2f508f22-d290-47e9-a501-e8bbc09b3d0a)
 
-Masuk ke cloudflare dan buat subdomain baru dengan mempointing ke ip webserver
+
+
+Selanjutnya, masuk ke cloudflare dan buat subdomain baru dengan mempointing ke ip webserver
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ff42dc51-9121-49b6-8a7f-f689bcb2562e)
 
