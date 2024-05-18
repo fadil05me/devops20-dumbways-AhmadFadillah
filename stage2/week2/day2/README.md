@@ -1,6 +1,6 @@
-# DAILY TASK - DAY 2 - WEEK 2 | CICD using JENKINS 
+# DAILY TASK - DAY 2 - WEEK 2
 
-## INSTALLASI JENKINS ON TOP OF DOCKER
+## CICD using JENKINS
 
 Disini saya akan menginstall jenkins dengan menggunakan docker compose.
 
