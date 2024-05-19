@@ -158,15 +158,15 @@ Jika sudah dibuat, kembali ke gitlab -> Settings -> CI/CD -> Variables -> Expand
 
 Masukkan semua variable yang dibutuhkan.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fbd377e9-8a21-4a5c-bd8a-d8a0c15197f4" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fbd377e9-8a21-4a5c-bd8a-d8a0c15197f4" width="30%" />
 
 Berikut adalah variable yang dibutuhkan.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a6409c40-54dc-4500-b8f6-fecdf8e4c707" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a6409c40-54dc-4500-b8f6-fecdf8e4c707" width="60%" />
 
 Jika sudah, kembali ke server frontend lalu push perubahan ke repository.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/5df954a7-b0a3-462f-9061-595eaf77fed6" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/5df954a7-b0a3-462f-9061-595eaf77fed6" width="70%" />
 
 Cek di gitlab -> Build -> Pipelines.
 
@@ -174,15 +174,15 @@ Cek di gitlab -> Build -> Pipelines.
 
 Nanti akan berjalan secara otomatis.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/343648ac-c315-4e5c-9599-a37810753854" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/343648ac-c315-4e5c-9599-a37810753854" width="70%" />
 
 Jika proses sudah selesai tanpa error maka akan tampil seperti ini.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/03ebc06d-5635-4900-b091-38f168fe85bb" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/03ebc06d-5635-4900-b091-38f168fe85bb" width="70%" />
 
 Selanjutnya pergi ke Settings -> Integrations -> Cari Discord Notifications -> Configure.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1b3c7c70-41e2-4cc3-b843-dc75f7a62e94" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1b3c7c70-41e2-4cc3-b843-dc75f7a62e94" width="70%" />
 
 Pastikan ```Enable Integration``` terceklist. Dan semua terceklist kecuali dipaling bawah.
 
