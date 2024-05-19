@@ -244,6 +244,10 @@ nano src/config/api.js
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f317b1fd-691b-4db0-a230-bf8e37349fb6)
 
 
+Ubah pada baseURL menjadi alamat url dari backend.
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a3640076-7dfe-406d-97f2-a15af7cceedb)
 
 
 Selanjutnya, build images docker dengan command berikut:
@@ -326,17 +330,70 @@ sudo chmod 400 certbot.ini
  
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/257531b7-6e3d-452f-b931-46bb837e9621)
 
-Selanjutnya buat folder baru bernama ```nginx``` lalu buat file 
-
-
-
-
-Jalankan docker compose.
+Selanjutnya buat folder baru bernama ```nginx``` dan buat lagi didalamnya bernama ```conf```, lalu didalam folder tersebut buat file dengan nama bebas berextensi ```.conf```.
 ```
-docker compose up -d
+mkdir nginx; cd nginx; mkdir conf; cd conf; nano fadil.conf
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/21001eac-8620-4208-98b8-782ffc1f0b53)
+
+Simpan script ini didalamnya:
+```
+server {
+        server_name fadil.studentdumbways.my.id;
+
+        listen 443 ssl;
+        ssl_certificate /etc/letsencrypt/live/fadil.studentdumbways.my.id/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/fadil.studentdumbways.my.id/privkey.pem;
+
+        location / {
+               proxy_pass http://103.xxx.xxx.xxx:3000;
+        }
+}
+server {
+        server_name api.fadil.studentdumbways.my.id;
+
+        listen 443 ssl;
+        ssl_certificate /etc/letsencrypt/live/fadil.studentdumbways.my.id/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/fadil.studentdumbways.my.id/privkey.pem;
+
+        location / {
+               proxy_pass http://103.xxx.xxx.xxx:5000;
+        }
+}
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/64dadc17-3cde-4fb9-94d3-c94b174c6cbb)
+
+
+Selanjutnya jalankan docker compose.
+```
+cd && docker compose up -d
 ```
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/66e9dec0-af2d-4e26-871f-db772bb493fb)
 
 Generate SSL Certificate.
+```
+docker compose run --rm certbot certonly --dns-cloudflare
+```
+ketika diminta nama domain, Masukkan ```namadomain.com, *.namadomain.com```.
 
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/57102811-d7fd-45ee-b55b-c6b8e2f38f08)
+
+
+Jika diminta file .ini, masukkan: ```/etc/letsencrypt/renewal/renewal.conf```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/061a0272-9809-4847-a76e-792c1aaab290)
+
+
+Jika selesai, lakukan reload nginx.
+```
+docker compose exec webserver nginx -s reload
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/456272b6-68ab-4ea6-b0a9-529805c3ec11)
+
+
+Lalu akses menggunakan browser.
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/861941cc-e00d-4eef-bd8a-c460911607d9)
 
