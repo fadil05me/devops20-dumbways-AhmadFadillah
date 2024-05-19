@@ -102,3 +102,7 @@ Jalankan script tadi dengan menggunakan command berikut:
 Tunggu sampai proses installasi docker selesai.
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4122d056-389d-4582-9d02-349440ad22c2)
+
+Jika sukses, akan tampil seperti ini.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fe5d7b92-2b4f-47ff-bf67-fd7378f4f8c3)
