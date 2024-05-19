@@ -134,7 +134,7 @@ nano config/config.json
 
 Buat file dengan nama ```Dockerfile```. Lalu isi dengan script berikut.
 ```
-FROM node:14
+FROM node:14-alpine
 
 WORKDIR /app
 
@@ -150,11 +150,24 @@ CMD [ "pm2-runtime", "ecosystem.config.js" ]
 ```
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/457e3a7f-2313-45fb-9844-c8d7551ee11b)
 
+Buat file baru lagi dengan nama ```ecosystem.config.js```
+```
+module.exports = {
+  apps: [
+    {
+      name: 'wayshub-backend',
+      script: 'npm',
+      args: ['run', 'start'],
+    }
+  ]
+};
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/40b4ded2-1eb6-418b-8038-2e6f463cf6ce)
 
 
 Selanjutnya build dengan menjalankan command berikut. Tunggu sampai proses selesai.
 ```
-docker build -t wayshub-backend:1.0
+docker build -t wayshub-backend:1.0 .
 ```
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6e3e7eec-f2ee-4685-81e1-215836e7b65a)
 
@@ -192,4 +205,138 @@ Selanjutnya clone repo [wayshub-frontend](https://github.com/dumbwaysdev/wayshub
 ```
 git clone https://github.com/dumbwaysdev/wayshub-frontend.git
 ```
+
+Setelah clone masuk ke directory frontend, Lalu buat file ```ecosystem.config.js```.
+```
+module.exports = {
+  apps: [
+    {
+      name: 'wayshub-frontend',
+      script: 'npm',
+      args: ['run', 'start'],
+    }
+  ]
+};
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/a85d374b-ac87-4786-91fe-2d2b7a4f1ac3)
+
+
+Buat lagi file baru bernama ```Dockerfile```. Lalu isi dengan script ini:
+```
+FROM node:14-alpine
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install pm2 -g
+RUN npm install
+
+EXPOSE 3000
+
+CMD [ "pm2-runtime", "ecosystem.config.js" ]
+```
+
+Edit file configurasi.
+```
+nano src/config/api.js
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f317b1fd-691b-4db0-a230-bf8e37349fb6)
+
+
+
+
+Selanjutnya, build images docker dengan command berikut:
+```
+docker build -t wayshub-frontend:1.0 .
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b647fc34-bf12-49ca-a201-b1410dfc902f)
+
+Jika sudah selesai, Cek dengan menggunakan command:
+```
+docker images
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e30eb816-7a92-4dce-a1c4-82837fd12134)
+
+Selanjutnya kembali ke directory home. Lalu buat file ```docker-compose.yaml```. Isi dengan script berikut:
+```
+version: '3.8'
+
+services:
+
+  webserver:
+    container_name: webserver
+    image: nginx:latest
+    ports:
+        - "80:80"
+        - "443:443"
+    restart: always
+    volumes:
+        - ./nginx/conf:/etc/nginx/conf.d
+        - ./certbot/www/:/var/www/certbot
+        - ./certbot/conf/:/etc/letsencrypt
+    depends_on:
+        - certbot
+    networks:
+      - team2
+
+  certbot:
+    container_name: certbot
+    image: certbot/dns-cloudflare:latest
+    volumes:
+      - ./certbot/certbot.ini:/etc/letsencrypt/renewal/renewal.conf:ro
+      - ./certbot/www/:/var/www/certbot
+      - ./certbot/conf/:/etc/letsencrypt
+    networks:
+      - team2
+
+  frontend:
+    container_name: wayshub-frontend
+    image: wayshub-frontend:1.0
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    depends_on:
+      - webserver
+    networks:
+      - team2
+
+networks:
+ team2:
+```
+
+Buat folder baru bernama ```certbot``` lalu buat file baru didalamnya dengan nama ```certbot.ini```.
+```
+mkdir certbot; cd certbot; nano certbot.ini
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/76272454-4d10-44d8-86c3-dae1dda44331)
+
+
+Masukkan email dan apikey dari cloudflare ke dalam file ```certbot.ini```
+```
+dns_cloudflare_email = "youremail@example.com"
+dns_cloudflare_api_key = "your_api_key"
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f2f42577-33b8-448f-90a2-3cc3b7919537)
+
+Lalu lakukan chmod.
+```
+sudo chmod 400 certbot.ini
+```
+ 
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/257531b7-6e3d-452f-b931-46bb837e9621)
+
+Selanjutnya buat folder baru bernama ```nginx``` lalu buat file 
+
+
+
+
+Jalankan docker compose.
+```
+docker compose up -d
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/66e9dec0-af2d-4e26-871f-db772bb493fb)
+
+Generate SSL Certificate.
+
 
