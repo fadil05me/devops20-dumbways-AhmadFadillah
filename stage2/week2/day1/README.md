@@ -106,3 +106,90 @@ Tunggu sampai proses installasi docker selesai.
 Jika sukses, akan tampil seperti ini.
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fe5d7b92-2b4f-47ff-bf67-fd7378f4f8c3)
+
+Selanjutnya, di server ini saya akan gunakan untuk backend dan mysql server.
+
+Clone repo [wayshub-backend](https://github.com/dumbwaysdev/wayshub-backend.git).
+```
+git clone https://github.com/dumbwaysdev/wayshub-backend.git
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/92b3069c-346e-44fd-bb60-675e9f451e3c)
+
+Masuk ke folder ```wayshub-backed```.
+```
+cd wayshub-backed
+```
+
+Selanjutnya copy file ```env.example```. Dan edit file konfigurasi dari backend.
+```
+cp env.example .env
+```
+
+Edit file ```config/config.json```. Lalu ganti sesuai dengan settingan database yang nanti akan dibuat.
+```
+nano config/config.json
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b42321ae-0c97-4a41-a597-22b505874b2f)
+
+
+Buat file dengan nama ```Dockerfile```. Lalu isi dengan script berikut.
+```
+FROM node:14
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm i sequelize-cli -g
+RUN npm install pm2 -g
+RUN npm install
+
+EXPOSE 5000
+
+CMD [ "pm2-runtime", "ecosystem.config.js" ]
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/457e3a7f-2313-45fb-9844-c8d7551ee11b)
+
+
+
+Selanjutnya build dengan menjalankan command berikut. Tunggu sampai proses selesai.
+```
+docker build -t wayshub-backend:1.0
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6e3e7eec-f2ee-4685-81e1-215836e7b65a)
+
+
+Kembali ke folder home, lalu buat file baru dengan nama ```Docker-compose.yaml```. Pada bagian Database ganti menjadi settingan database tadi.
+```
+cd && nano docker-compose.yaml
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6014b964-09af-4beb-99cf-b84ffb2a48e9)
+
+
+Jika sudah disimpan, Jalankan command berikut:
+```
+docker compose up -d
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/85f3f977-0d16-4fac-b826-c03bacdf6bac)
+
+
+Selanjutnya, masuk ke docker dari backend.
+```
+docker exec -it wayshub-backend bash
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/9d0e7474-bfb3-460c-a8ba-053bb663739f)
+
+Jalankan command berikut untuk migrasi database.
+```
+sequelize db:migrate
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b83b4be9-51b1-40e4-b7b7-348e0791c8a7)
+
+
+Jika sudah, kita pindah ke server untuk frontend dan webserver. Lalu install docker seperti cara diatas tadi.
+
+Selanjutnya clone repo [wayshub-frontend](https://github.com/dumbwaysdev/wayshub-frontend.git)
+```
+git clone https://github.com/dumbwaysdev/wayshub-frontend.git
+```
+
