@@ -158,7 +158,7 @@ Jika sudah dibuat, kembali ke gitlab -> Settings -> CI/CD -> Variables -> Expand
 
 Masukkan semua variable yang dibutuhkan.
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/dd547c06-ee01-469c-91ee-f219b77b9883" width="50%" />
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/fbd377e9-8a21-4a5c-bd8a-d8a0c15197f4" width="50%" />
 
 Berikut adalah variable yang dibutuhkan.
 
