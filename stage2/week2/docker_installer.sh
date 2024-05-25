@@ -44,6 +44,10 @@ sudo apt-get update
 echo -e "\n\n~~~Step 6: Install Docker!~~~\n\n"
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+# Add current user to docker group
+echo -e "\n\n~~~Adding current user to Docker Group!~~~\n\n"
+sudo usermod -aG docker $USER
+
 # Cek versi Docker
 echo -e "\n\n~~~Cek versi Docker!~~~\n\n"
 docker -v
