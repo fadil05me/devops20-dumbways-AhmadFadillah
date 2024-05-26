@@ -30,11 +30,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sleep 1
-echo -n "."
-sleep 1
-echo -n "."
-sleep 1
-echo -n "."
+echo -n "Done!!"
 
 echo -e "\n\n~~~Selesai menambahkan Docker ke repository APT!~~~\n\n"
 
@@ -47,6 +43,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # Add current user to docker group
 echo -e "\n\n~~~Adding current user to Docker Group!~~~\n\n"
 sudo usermod -aG docker $USER
+sleep 1
+echo -n "Done!!"
 
 # Cek versi Docker
 echo -e "\n\n~~~Cek versi Docker!~~~\n\n"
