@@ -21,4 +21,18 @@ Dengan mengukuti [dokumentasi resmi](https://registry.terraform.io/providers/has
 Untuk scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/stage2/week3/Terraform).
 
 
-# WEEK 2 - DAY 2 - ANSIBLE
+# WEEK 3 - DAY 2 - ANSIBLE
+
+Untuk cara installnya bisa dilihat [DISINI](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu).
+
+Untuk Ubuntu, cara installnya cukup dengan menjalankan command berikut:
+```
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
+
+Disini saya sudah install Ansible:
+
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4e5be541-bf1f-4c47-ae2f-9c3b790e1a4c" width="70%"/>
