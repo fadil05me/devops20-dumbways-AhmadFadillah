@@ -28,3 +28,4 @@ Untuk scriptnya saya sudah buat, dan bisa dilihat [DISINI](https://github.com/fa
 ---------------
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/417dad94-844a-44ab-bf16-ffd28a3e36b6)
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b9f1ff23-d79a-4731-b02f-6a4f9be126e7)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7ea6860f-ca6d-4327-88c8-7f1869065285)
