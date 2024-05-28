@@ -16,7 +16,9 @@ sudo apt update && sudo apt install terraform
 
 ## Buat Script Terraform Untuk Microsoft Azure
 
-Dengan mengukuti [dokumentasi resmi](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) yang ada, disini saya sudah membuat sciptnya:
+Dengan mengikuti [dokumentasi resmi](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) yang ada.
+
+Disini saya sudah membuat sciptnya:
 
 Untuk scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/stage2/week3/Terraform).
 
