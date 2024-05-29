@@ -186,24 +186,28 @@ Query Disk Usage
 ```
 
 
-
+<br><br><br>
 ## Alerting
 
-CPU
+### CPU
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/df15a0ae-7de9-4a4e-9640-5ce031bac2c8)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/163acaae-e963-44e6-be3b-3c3098bde2f6)
 
+<br><br><br>
+### MEMORY
+<br>
 
-MEMORY
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/720b7a39-87f6-4a7d-99bb-9a75bf8d36d5)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/03f65b39-765f-41e3-bbda-a45af477dcfd)
 
 
-
-Notification Template:
-
+<br><br><br>
+### Notification Template:
+<br>
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/45e893e4-cf03-4db2-a8dc-196296800bc1" width="50%"/><br><br>
 
-
+<br><br><br>
 Hasil Discord Notif:
-
+<br><br>
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2966d547-88bb-426a-88a1-4283396279cf)
