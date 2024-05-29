@@ -199,7 +199,11 @@ MEMORY
 
 
 
-Notification Template
+Notification Template:
 
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/45e893e4-cf03-4db2-a8dc-196296800bc1" width="50%"/><br><br>
 
+
+Hasil Discord Notif:
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2966d547-88bb-426a-88a1-4283396279cf)
