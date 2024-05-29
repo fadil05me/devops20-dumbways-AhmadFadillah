@@ -196,5 +196,5 @@ MEMORY
 
 Notification Template
 
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7999f2e2-1b30-41a0-b032-30cd78d30b99" width="70%"/><br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7999f2e2-1b30-41a0-b032-30cd78d30b99" width="50%"/><br><br>
 
