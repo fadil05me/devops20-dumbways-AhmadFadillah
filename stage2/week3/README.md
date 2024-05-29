@@ -1,4 +1,6 @@
+-----------------------------
 # WEEK 3 - DAY 1 - TERRAFORM
+-----------------------------
 
 ## Install Terraform
 Untuk cara installnya bisa dilihat [DISINI](https://developer.hashicorp.com/terraform/install?product_intent=terraform).
@@ -124,9 +126,56 @@ Jika sukses nanti hasilnya seperti ini:
 
 
 
-
-
 -------------------------------------
 # WEEK 3 - DAY 3 - MONITORING SERVER
 -------------------------------------
 
+Setelah monitoring terdeploy dengan ansible, buka dashboard grafana di browser.
+
+Ke connections, lalu tambahkan source dari prometheus.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ec821881-dab4-4b2e-9c45-81f30bb16fa9" width="75%"/><br><br>
+
+Masukkan url dari prometheus.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/de4d9a62-3e18-4abd-bc34-8cbf03502935" width="75%"/><br><br>
+
+Jika sudah Save.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ea77b30a-3eae-496c-8c32-edd2f9a87a88" width="75%"/><br><br>
+Lalu buat folder baru.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2e18f50-18f9-49e1-b066-f7317bb7533f" width="75%"/><br><br>
+Buat Dashboard baru, pilih grafana.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/73e5087c-e1db-4c30-be86-03e5fab86070" width="75%"/><br><br>
+Pada data source ganti menjadi prometheus.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6be88166-38a7-4c71-8e8b-1d092b351f9c" width="30%"/><br><br>
+Selanjutnya masukkan query dan sesuaikan designnya.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8f886f5b-8d30-466e-af5c-644eda4289c7" width="100%"/><br><br>
+Jika sudah save.
+<br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/beeb3a81-d56c-45be-a414-cfb8a76bbbc8" width="30%"/><br><br>
+
+Query CPU Usage
+```
+sum(rate(node_cpu_seconds_total{instance="13.64.9.70:9100", mode!="idle"}[15s])) by (instance)
+/ count(node_cpu_seconds_total{instance="13.64.9.70:9100", mode="idle"}) by (instance) * 100
+```
+
+Query Memory Usage
+```
+(1 - (node_memory_MemAvailable_bytes{instance="13.64.9.70:9100"} / node_memory_MemTotal_bytes{instance="13.64.9.70:9100"})) * 100
+```
+
+Query Disk I/O
+```
+100 * rate(node_disk_io_time_seconds_total{instance="13.64.9.70:9100", device="sda"}[15s])
+```
+
+Query Disk Usage
+```
+100 - ((node_filesystem_avail_bytes{instance="13.64.9.70:9100", mountpoint="/"} / node_filesystem_size_bytes{instance="13.64.9.70:9100", mountpoint="/"}) * 100)
+```
