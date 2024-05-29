@@ -159,6 +159,11 @@ Jika sudah save.
 <br><br>
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/beeb3a81-d56c-45be-a414-cfb8a76bbbc8" width="30%"/><br><br>
 
+Tambahkan Memory dan disk usage untuk server 1 dan 2. Jika sudah hasilnya seperti ini:
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/528e9949-8ccf-4946-a8d7-6e33f73c74cb)
+
+
 Query CPU Usage
 ```
 sum(rate(node_cpu_seconds_total{instance="13.64.9.70:9100", mode!="idle"}[15s])) by (instance)
