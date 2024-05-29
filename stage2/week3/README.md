@@ -179,3 +179,16 @@ Query Disk Usage
 ```
 100 - ((node_filesystem_avail_bytes{instance="13.64.9.70:9100", mountpoint="/"} / node_filesystem_size_bytes{instance="13.64.9.70:9100", mountpoint="/"}) * 100)
 ```
+
+
+
+## Alerting
+
+CPU
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/df15a0ae-7de9-4a4e-9640-5ce031bac2c8)
+
+
+MEMORY
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/720b7a39-87f6-4a7d-99bb-9a75bf8d36d5)
+
