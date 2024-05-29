@@ -1,0 +1,67 @@
+- name: "Install Docker Engine and Deploy wayshub-frontend"
+  hosts: all
+  become: yes
+
+  tasks:
+
+      - name: "Update apt package cache"
+        apt:
+          update_cache: yes
+        
+      - name: "Upgrade all packages"
+        apt:
+          upgrade: yes
+
+      - name: "Install dependencies"
+        package:
+          name:
+            - ca-certificates
+            - curl
+
+      - name: "Add Docker's official GPG key"
+        apt_key:
+          url: https://download.docker.com/linux/ubuntu/gpg
+
+      - name: "Add Docker repository"
+        apt_repository:
+          repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_version }} stable"
+          state: present
+
+      - name: "Update apt package cache"
+        apt:
+          update_cache: yes
+
+      - name: "Install Docker Engine"
+        package:
+          name: docker-ce
+          state: present
+
+      - name: "Start Docker service"
+        service:
+          name: docker
+          state: started
+          enabled: yes
+
+      - name: "Get the installed version of Docker"
+        shell: docker --version
+        register: docker_version
+
+      - name: "Display installed version of Docker"
+        debug:
+          msg: "Installed Docker version is {{ docker_version.stdout }}"
+
+      - name: "Add new user to docker group"
+        user:
+          name: "{{ new_user }}"
+          groups: docker
+          append: yes
+
+      - name: "Deploy Docker image from DockerHub"
+        docker_container:
+          name: wayshub-frontend
+          image: fadil05me/wayshub-frontend:latest
+          state: started
+          ports:
+              - "3001:3000"
+          restart_policy: always
+        when: inventory_hostname == 'server2'

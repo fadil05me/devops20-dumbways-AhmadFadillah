@@ -1,0 +1,4 @@
+- import_playbook: new_user.yaml
+- import_playbook: docker.yaml
+- import_playbook: monitoring.yaml
+- import_playbook: reverse_proxy.yaml

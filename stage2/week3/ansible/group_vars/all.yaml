@@ -1,0 +1,33 @@
+# Create New user
+new_user: "your_new_user_name"
+home_dir: "/home/{{ new_user }}"
+ssh_key_file: "{{ home_dir }}/.ssh/id_rsa" #remote
+save_pem_dir: "~/.ssh/" #local
+authorized_keys_file: "{{ home_dir }}/.ssh/authorized_keys"
+
+# Docker
+ubuntu_version: "jammy"
+
+# Monitoring
+job_name: "Dev-Server"
+scrape_interval: "5s"
+targets:
+  - "xxx.xxx.xxx.xxx:9100"
+  - "xxx.xxx.xxx.xxx:9100"
+grafana_dir: "{{ home_dir }}/grafana"
+prometheus_config: "{{ grafana_dir }}/prometheus.yml"
+grafana_datasources: "{{ grafana_dir }}/provisioning/datasources"
+grafana_data: "{{ grafana_dir }}/data"
+
+# Reverse Proxy
+nginx_dir: "{{ home_dir }}/nginx"
+cloudflare_api: "your_api_token"
+cloudflare_email: "your_email@gmail.com"
+domain: "your_domain.com"
+subdomains:
+  - name: "exporter"
+    backend: "xxx.xxx.xxx.xxx:9100"
+  - name: "monitoring"
+    backend: "xxx.xxx.xxx.xxx:3000"
+  - name: "prom"
+    backend: "xxx.xxx.xxx.xxx:9090"

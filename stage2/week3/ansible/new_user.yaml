@@ -1,0 +1,70 @@
+- name: "Create a new user and configure SSH access"
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: "Creating new user"
+      user:
+        name: "{{ new_user }}"
+        shell: /bin/bash
+        create_home: yes
+        groups: sudo
+
+    - name: "Add the new user to sudoers with passwordless sudo"
+      copy:
+        dest: "/etc/sudoers.d/{{ new_user }}"
+        content: "{{ new_user }} ALL=(ALL) NOPASSWD:ALL"
+        mode: '0440'
+
+    - name: "Create .ssh directory"
+      file:
+        path: "{{ home_dir }}/.ssh"
+        state: directory
+        owner: "{{ new_user }}"
+        group: "{{ new_user }}"
+        mode: '0700'
+
+    - name: "Add new user to sudo group"
+      user:
+        name: "{{ new_user }}"
+        groups: sudo
+        append: yes
+
+    - name: "Generate SSH key pair for the new user"
+      openssh_keypair:
+        path: "{{ ssh_key_file }}"
+        type: rsa
+        owner: "{{ new_user }}"
+        group: "{{ new_user }}"
+        mode: '0600'
+      register: ssh_key
+
+    - name: "Set authorized_keys for the new user"
+      copy:
+        dest: "{{ authorized_keys_file }}"
+        content: "{{ ssh_key.public_key }}"
+        owner: "{{ new_user }}"
+        group: "{{ new_user }}"
+        mode: '0600'
+
+    - name: "Fetch the remote file"
+      fetch:
+        src: "{{ ssh_key_file }}"
+        dest: "{{ save_pem_dir }}/{{ new_user }}-{{ inventory_hostname }}.pem"
+        flat: yes
+
+    - name: "Change .pem file permissions to 600"
+      local_action: "command chmod 600 {{ save_pem_dir }}/{{ new_user }}-{{ inventory_hostname }}.pem"
+      become: no
+
+    - name: "Test connection to New User with SSH"
+      local_action: "command ssh -i {{ save_pem_dir }}/{{ new_user }}-{{ inventory_hostname }}.pem {{ new_user }}@{{ ansible_host }}"
+      become: no
+      register: ssh_result
+      ignore_errors: yes
+
+    - name: "Display message if connection is successful"
+      debug:
+        msg: "SSH connection to {{ inventory_hostname }} - {{ ansible_host }} with new user: {{ new_user }} is successful"
+      when: ssh_result is succeeded
