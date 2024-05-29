@@ -192,3 +192,9 @@ CPU
 MEMORY
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/720b7a39-87f6-4a7d-99bb-9a75bf8d36d5)
 
+
+
+Notification Template
+
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7999f2e2-1b30-41a0-b032-30cd78d30b99" width="70%"/><br><br>
+
