@@ -182,7 +182,7 @@ Query Disk I/O
 
 Query Disk Usage
 ```
-100 - ((node_filesystem_avail_bytes{instance="13.64.9.70:9100", mountpoint="/"} / node_filesystem_size_bytes{instance="13.64.9.70:9100", mountpoint="/"}) * 100)
+(1 - (node_filesystem_avail_bytes{instance="13.64.9.70:9100", mountpoint="/"} / node_filesystem_size_bytes{instance="13.64.9.70:9100", mountpoint="/"})) * 100
 ```
 
 
