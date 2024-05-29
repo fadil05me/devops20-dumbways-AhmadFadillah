@@ -107,7 +107,7 @@ Disini saya sudah install Ansible:
 <br><br>
 <img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4e5be541-bf1f-4c47-ae2f-9c3b790e1a4c" width="70%"/><br><br>
 
-Dan untuk scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/stage2/week3/Ansible).
+Dan untuk scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/tree/main/stage2/week3/ansible).
 
 <br>
 Selanjutnya, untuk menjalankan scriptnya gunakan command berikut:
