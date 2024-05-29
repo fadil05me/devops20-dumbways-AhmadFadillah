@@ -111,13 +111,16 @@ Dan untuk scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-
 
 <br>
 Selanjutnya, untuk menjalankan scriptnya gunakan command berikut:
+<br>
+
 ```
 ansible-playbook main.yaml
 ```
 
+<br>
 Jika sukses nanti hasilnya seperti ini:
 <br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/35c0062b-5239-4477-888b-fcd4bbb01aac" width="70%"/><br><br>
+<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/35c0062b-5239-4477-888b-fcd4bbb01aac" width="85%"/><br><br>
 
 
 
