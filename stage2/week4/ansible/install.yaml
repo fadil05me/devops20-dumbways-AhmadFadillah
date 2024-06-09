@@ -1,0 +1,103 @@
+- name: "Install k3s and configure worker node"
+  hosts: all
+  become: yes
+
+  tasks:
+
+  # Install k3s
+    - name: "Install k3s"
+      shell: curl -sfL https://get.k3s.io | sh -
+      when: inventory_hostname == 'master'
+
+    - name: "Read K3S token from master"
+      command: cat /var/lib/rancher/k3s/server/token
+      register: master_token
+      when: inventory_hostname == 'master'
+
+    - name: "Set master token fact"
+      set_fact:
+        master_token: "{{ master_token.stdout.strip() }}"
+      when: inventory_hostname == 'master'
+
+  # Worker
+    - name: "Install K3S on worker node"
+      shell: curl -sfL https://get.k3s.io | K3S_URL=https://{{ masterip }}:6443 K3S_TOKEN={{ hostvars['master']['master_token'] }} sh -
+      when: inventory_hostname == 'worker'
+
+    - name: "Create .kube directory"
+      file:
+        path: "/home/{{ user }}/.kube"
+        state: directory
+        mode: "0755"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      when: inventory_hostname == 'master'
+
+    - name: "Fetch k3s kubeconfig from master"
+      fetch:
+        src: "/etc/rancher/k3s/k3s.yaml"
+        dest: "/tmp/k3s.yaml"
+        flat: yes
+      when: inventory_hostname == 'master'
+
+    - name: "Copy k3s kubeconfig"
+      copy:
+        src: "/tmp/k3s.yaml"
+        dest: "/home/{{ user }}/.kube/config"
+        mode: "0644"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      when: inventory_hostname == 'master'
+
+    - name: "Add KUBECONFIG in .bashrc as user"
+      lineinfile:
+        path: "/home/{{ user }}/.bashrc"
+        line: "export KUBECONFIG=/home/{{ user }}/.kube/config"
+        create: yes
+        state: present
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      when: inventory_hostname == 'master'
+
+    - name: "Add KUBECONFIG in .bashrc as root"
+      lineinfile:
+        path: "/root/.bashrc"
+        line: "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml"
+        create: yes
+        state: present
+      when: inventory_hostname == 'master'
+
+    - name: "Create .kube directory on local machine"
+      local_action:
+        module: file
+        path: "/home/{{ user }}/.kube"
+        state: directory
+      become: no
+      when: inventory_hostname == 'master'
+
+    - name: "Copy k3s kubeconfig to local machine"
+      local_action: "command cp /tmp/k3s.yaml /home/{{ user }}/.kube/config"
+      become: no
+      when: inventory_hostname == 'master'
+
+    - name: "Replace config host to master ip"
+      local_action: "command sed -i 's/127.0.0.1/{{ masterip }}/g' /home/{{ user }}/.kube/config"
+      become: no
+      when: inventory_hostname == 'master'
+
+    - name: "Add KUBECONFIG global variable"
+      local_action:
+        module: shell
+        cmd: "echo 'export KUBECONFIG=/home/{{ user }}/.kube/config' >> /home/{{ user }}/.bashrc"
+      become: no
+      when: inventory_hostname == 'master'
+
+    - name: "Get k3s node worker information"
+      shell: kubectl get node | grep worker 
+      register: k3s_nodes
+      when: inventory_hostname == 'master'
+
+    - name: "Print k3s node worker information"
+      debug:
+        var: k3s_nodes.stdout
+      when: inventory_hostname == 'master'
