@@ -4,7 +4,7 @@ metadata:
   name: wayshub-frontend
   namespace: fadil
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: wayshub-frontend
