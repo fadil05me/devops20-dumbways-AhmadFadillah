@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wayshub-frontend
+  namespace: fadil
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wayshub-frontend
+  template:
+    metadata:
+      labels:
+        app: wayshub-frontend
+    spec:
+      containers:
+      - name: wayshub-frontend
+        image: fadil05me/wayshub-frontend:latest
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wayshub-frontend
+  namespace: fadil
+spec:
+  selector:
+    app: wayshub-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
