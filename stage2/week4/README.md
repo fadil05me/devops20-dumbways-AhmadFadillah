@@ -123,8 +123,117 @@ default-local-storage-path: /mnt/
 
 Jika sudah restart service k3s-agent:
 ```
-systemctl restart k3s-agent
-kubectl get storageclasses
+sudo systemctl restart k3s-agent
 ```
 
 ## Task 5: Deploy database mysql with statefullset and use secrets
+
+Buat file baru dengan nama mysql.yaml, isi dengan script berikut:
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: fadil
+type: Opaque
+data:
+  mysql-root-password: your_root_password_base64encode
+  mysql-user: your_username_base64encode
+  mysql-password: your_password_base64encode
+  mysql-db: your_db_name_base64encode
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: fadil
+spec:
+  serviceName: "mysql"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-root-password
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-password
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-db
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: "/var/lib/mysql"
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+  namespace: fadil
+spec:
+  selector:
+    app: mysql
+  type: NodePort
+  ports:
+  - name: mysql-port
+    port: 3306
+```
+
+
+Simpan dan jalankan command berikut:
+```
+kubectl apply -f mysql.yaml
+```
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/5fbd0119-6150-4dce-a28d-a78f6b55d625)
+
+Cek:
+```
+kubectl get statefulsets -n fadil
+kubectl get secret -n fadil
+kubectl get service -n fadil
+```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1b468547-e224-4fad-9137-50d8a31205c6)
+
+Akses mysql:
+```
+kubectl exec -it statefulset.apps/mysql -n fadil -- /bin/bash
+```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4d0125aa-11c0-4b59-87d3-eb0f110ac675)
