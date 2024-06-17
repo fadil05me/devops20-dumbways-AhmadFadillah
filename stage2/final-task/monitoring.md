@@ -139,7 +139,7 @@ Query Memory Usage
 
 Query Disk Usage
 ```
-(1 - (node_filesystem_avail_bytes{instance="13.64.9.70:9100", mountpoint="/"} / node_filesystem_size_bytes{instance="13.64.9.70:9100", mountpoint="/"})) * 100
+(1 - (node_filesystem_avail_bytes{instance="52.187.151.49:9100", mountpoint="/"} / node_filesystem_size_bytes{instance="52.187.151.49:9100", mountpoint="/"})) * 100
 ```
 
 CPU Container
@@ -215,13 +215,15 @@ Pada bagian ```Optional Telegram Settings```, isi Message:
 [Silence Alert]({{ .SilenceURL }})
 ```
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cc77d623-76a8-46d4-a016-4d01117ac7b8)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/235ba9fb-9794-4ec2-9571-069be8956b1e)
+
 
 
 Lakukan test dengan mengklik ```Test``` -> ```Send test notification```.
 
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/d80aa0e9-a048-46fb-ae81-1ee511fbc1cc)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7d1cb4e7-23be-4565-a497-fcb54b9cef31)
+
 
 
 Jika sudah benar, Klik ```Save contact point```.
@@ -270,3 +272,21 @@ Pada contact point pilih ```Telegram Notif```.
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/28905928-3bdb-45fb-827e-aa48c0aa88a8)
 
+
+Pada bagian ```Annotation``` isi sesuai keperluan.
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7e367c99-82cf-41d6-a68a-f13f5f5e8552)
+
+
+
+## Hasil Notif
+
+
+
+
+Buat juga untuk ```RAM Usage```, ```Free Storage```, dan ```Network I/O (NGINX Monitoring)```.
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7785e6bb-dc9d-4da1-aacd-6213136657bb)
