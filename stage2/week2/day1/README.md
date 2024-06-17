@@ -1,6 +1,6 @@
-# DAILY TASK - DAY 1 - WEEK 2
+# DAILY TASK - DAY 1 - WEEK 2 - Docker
 
-## DOCKER
+## Rebuild Server Biznet
 
 Pertama kita lakukan rebuild server.
 
@@ -23,6 +23,9 @@ Jika sudah benar, Klik ```Rebuild```.
 Tunggu sampai proses rebuild selesai, lakukan _Refresh_ secara berkala. Jika sudah berhasil statusnya akan menjadi _Active_.
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1fd8cbfb-1979-42ef-b6a3-348bb6e1325a)
+
+
+## Installasi Docker
 
 Jika sudah aktif, konek ke server menggunakan SSH. Lalu buat user baru.
 ```
