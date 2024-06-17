@@ -220,9 +220,24 @@ Selanjutnya buat ```Alert Rules```.
 
 Masukkan Query yang sama dengan CPU Usage.
 
+
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0970fa18-95ae-43c2-8123-6cd2b91b608d)
+
 
 Pada bagian expressions, ganti input menjadi A dan IS ABOVE value menjadi 70. Jadi tiap cpu usage melebihi 70%, maka akan melakukan alerting.
 
+
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/671c1cf8-fe59-45e6-9eb6-c5b6b3e5bbe0)
+
+
+Buat ```new folder``` dan ```new evaluation group```
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/d1a58a5b-a88c-444e-bfe4-cab5f475319e)
+
+
+Pada contact point pilih ```Telegram Notif```.
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/28905928-3bdb-45fb-827e-aa48c0aa88a8)
 
