@@ -197,7 +197,32 @@ Lakukan test dengan mengklik ```Test``` -> ```Send test notification```.
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/d80aa0e9-a048-46fb-ae81-1ee511fbc1cc)
 
 
-Jika sudah benar, Klik ```Save```.
+Jika sudah benar, Klik ```Save contact point```.
 
 
-### CPU
+Selanjutnya ke ```Notification Policies```. Pada default policy klik tanda ```...``` -> ```Edit```.
+
+
+Ganti ```Default contact point``` menjadi contanc point yang barusan dibuat yaitu ```Telegram Notif```.
+
+
+Pada ```Timing Options``` sesuaikan dengan kebutuhan.
+
+
+Jika sudah klik ```Update default policy```.
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bc6f7878-7a5a-4654-8f02-4c7d4107210f)
+
+
+
+Selanjutnya buat ```Alert Rules```.
+
+Masukkan Query yang sama dengan CPU Usage.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0970fa18-95ae-43c2-8123-6cd2b91b608d)
+
+Pada bagian expressions, ganti input menjadi A dan IS ABOVE value menjadi 70. Jadi tiap cpu usage melebihi 70%, maka akan melakukan alerting.
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/671c1cf8-fe59-45e6-9eb6-c5b6b3e5bbe0)
+
