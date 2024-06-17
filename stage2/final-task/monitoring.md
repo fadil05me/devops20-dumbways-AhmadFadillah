@@ -191,6 +191,33 @@ Ke ```Grafana``` -> ```Contact Points``` -> ```Add contact point``` -> Integrati
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1d289a2a-f135-49a0-819c-a8196a917849)
 
 
+
+Pada bagian ```Optional Telegram Settings```, isi Message:
+```
+**🚨 Alert Firing 🚨**
+
+**Alert Name:** {{ .CommonLabels.alertname }}
+**Severity:** High
+
+**Details:**
+- **Instance:** {{ .CommonLabels.instance }}
+- **Job:** {{ .CommonLabels.job }}
+- **Folder:** {{ .CommonLabels.grafana_folder }}
+
+**Description:**
+{{ .CommonAnnotations.description }}
+
+**Summary:**
+{{ .CommonAnnotations.summary }}
+
+
+[View in Grafana]({{ .ExternalURL }})
+[Silence Alert]({{ .SilenceURL }})
+```
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/cc77d623-76a8-46d4-a016-4d01117ac7b8)
+
+
 Lakukan test dengan mengklik ```Test``` -> ```Send test notification```.
 
 
