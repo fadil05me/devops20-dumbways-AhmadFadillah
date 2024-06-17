@@ -218,10 +218,12 @@ Jika sudah klik ```Update default policy```.
 
 Selanjutnya buat ```Alert Rules```.
 
+
 Masukkan Query yang sama dengan CPU Usage.
 
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0970fa18-95ae-43c2-8123-6cd2b91b608d)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6c2da929-7b9e-48b5-880f-055245f823fe)
+
 
 
 Pada bagian expressions, ganti input menjadi A dan IS ABOVE value menjadi 70. Jadi tiap cpu usage melebihi 70%, maka akan melakukan alerting.
