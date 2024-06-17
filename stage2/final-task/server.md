@@ -23,6 +23,7 @@
 
 -----
 
+## Setup using Ansible
 
 Pada task ini saya menggunakan ansible, scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/2create_user.yaml) (untuk create user) dan [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/3setup_ufw.yaml) (untuk change ssh port and setup ufw).
 
