@@ -201,7 +201,6 @@ Pada bagian ```Optional Telegram Settings```, isi Message:
 
 **Details:**
 - **Instance:** {{ .CommonLabels.instance }}
-- **Job:** {{ .CommonLabels.job }}
 - **Folder:** {{ .CommonLabels.grafana_folder }}
 
 **Description:**
@@ -211,8 +210,8 @@ Pada bagian ```Optional Telegram Settings```, isi Message:
 {{ .CommonAnnotations.summary }}
 
 
-[View in Grafana]({{ .ExternalURL }})
-[Silence Alert]({{ .SilenceURL }})
+[View in Grafana]
+https://monitoring.fadil.studentdumbways.my.id/d/bdoybug3x9hxcc/dashboard?orgId=1
 ```
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/235ba9fb-9794-4ec2-9571-069be8956b1e)
