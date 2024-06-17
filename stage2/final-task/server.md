@@ -47,8 +47,8 @@ Pada task ini saya menggunakan ansible, scriptnya bisa dilihat [DISINI](https://
 
 **Worker Server**
 
-![Uploading image.png…]()
 
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0d3ccccf-5e9f-4286-810e-0c3b3db39f78)
 
 
 **Gateway**
