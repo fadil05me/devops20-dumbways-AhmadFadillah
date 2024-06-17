@@ -133,31 +133,63 @@ Jika sukses nanti hasilnya seperti ini:
 Setelah monitoring terdeploy dengan ansible, buka dashboard grafana di browser.
 
 Ke connections, lalu tambahkan source dari prometheus.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ec821881-dab4-4b2e-9c45-81f30bb16fa9" width="75%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ec821881-dab4-4b2e-9c45-81f30bb16fa9)
+
+
 
 Masukkan url dari prometheus.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/de4d9a62-3e18-4abd-bc34-8cbf03502935" width="75%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/de4d9a62-3e18-4abd-bc34-8cbf03502935)
+
+
 
 Jika sudah Save.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ea77b30a-3eae-496c-8c32-edd2f9a87a88" width="75%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ea77b30a-3eae-496c-8c32-edd2f9a87a88)
+
+
 Lalu buat folder baru.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2e18f50-18f9-49e1-b066-f7317bb7533f" width="75%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e2e18f50-18f9-49e1-b066-f7317bb7533f)
+
+
 Buat Dashboard baru, pilih grafana.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/73e5087c-e1db-4c30-be86-03e5fab86070" width="75%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/73e5087c-e1db-4c30-be86-03e5fab86070)
+
+
 Pada data source ganti menjadi prometheus.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6be88166-38a7-4c71-8e8b-1d092b351f9c" width="30%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/6be88166-38a7-4c71-8e8b-1d092b351f9c)
+
+
 Selanjutnya masukkan query dan sesuaikan designnya.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8f886f5b-8d30-466e-af5c-644eda4289c7" width="100%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8f886f5b-8d30-466e-af5c-644eda4289c7)
+
+
 Jika sudah save.
-<br><br>
-<img src="https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/beeb3a81-d56c-45be-a414-cfb8a76bbbc8" width="30%"/><br><br>
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/beeb3a81-d56c-45be-a414-cfb8a76bbbc8)
+
+
 
 Tambahkan Memory dan disk usage untuk server 1 dan 2. Jika sudah hasilnya seperti ini:
 
@@ -186,7 +218,9 @@ Query Disk Usage
 ```
 
 
-<br><br><br>
+
+
+
 ## Alerting
 
 ### CPU
