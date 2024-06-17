@@ -52,7 +52,7 @@ services:
 
 Test Connetion to PSQL remotely:
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ac492dbe-c321-4baf-a572-e720b732e30d)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/24b3dcb1-8aa2-4aa3-a124-4b1147ccffda)
 
 
 ## Docker image for frontend
