@@ -39,9 +39,10 @@ Pada task ini saya menggunakan ansible, scriptnya bisa dilihat [DISINI](https://
 
 ## UFW Allow Custom Port
 
+
 **Master Server**
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/86f11e7a-9b17-4342-898e-52153e518357)
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c44ccd1d-1dbe-427c-9dd2-57b247dce897)
 
 
 **Worker Server**
