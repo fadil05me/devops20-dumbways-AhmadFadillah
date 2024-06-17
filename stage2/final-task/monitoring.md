@@ -282,6 +282,8 @@ Pada bagian ```Annotation``` isi sesuai keperluan.
 ## Hasil Notif
 
 
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c79d0530-f068-4e51-905e-120301e842b3)
+
 
 
 Buat juga untuk ```RAM Usage```, ```Free Storage```, dan ```Network I/O (NGINX Monitoring)```.
