@@ -184,7 +184,16 @@ kubectl apply -f pg.yaml
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/db679fea-f250-474b-846f-9e2c84619d67)
 
 
-## Deploy Backend
+## Deploy Backend Production
+
+Edit file .env:
+```
+DB_HOST=db.fadil.studentdumbways.my.id
+DB_USER=fadil
+DB_PASSWORD=Fadil999
+DB_NAME=dumbmerch
+DB_PORT=5432
+```
 
 Buat folder dumbmerch di home, lalu buat file backend.yaml:
 ```
@@ -358,3 +367,90 @@ Login ke Pgadmin, ```Add New Server```.
 Masukkan Ip address, Port, Username dan Password. Lalu klik Save.
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f80bad50-d000-46b9-9983-2417784afa51)
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/8d3a7357-0e7a-41e4-9d6c-af3abf5e6db0)
+
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4880720d-3c28-4552-bf62-9bf6b4833c7e)
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/eb354ffe-4ea5-40bc-af4f-413672a013ee)
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ac6bcdb9-9d5b-4dc3-861c-450a2e7c37b9)
+
+
+
+## Load Balancing
+
+**PosgreSQL Load balancing**
+
+Buat folder baru di home dengan nama HAProxy, lalu buat file haproxy.cfg.
+```
+global
+    log stdout format raw local0
+    maxconn 4096
+    user haproxy
+    group haproxy
+    daemon
+
+defaults
+    log     global
+    mode    tcp
+    option  tcplog
+    retries 3
+    timeout connect 5000ms
+    timeout client  50000ms
+    timeout server  50000ms
+
+frontend postgres_frontend
+    bind *:5432
+    default_backend postgres_backend
+
+backend postgres_backend
+    balance roundrobin
+    server primary_server 52.187.151.49:30432 check
+    server secondary_server 52.187.151.75:30432 check
+```
+
+
+File docker-compose.yaml
+
+```
+services:
+  haproxy:
+    image: haproxy:latest
+    container_name: haproxy
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - "5432:5432"
+```
+
+Selanjutnya jalankan ```docker compose up -d```
+
+
+Cek koneksi ke database:
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/da46624c-b45f-4133-b8ea-f41c542b1490)
+
+
+**Backend Load Balancing**
+
+Edit file configurasi dari server backend.
+
+Tambahkan Ip address backend pada upstream:
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e75deda7-d1f0-4fe2-9b35-91a262fe5c49)
+
+
+
+**Frontend Load Balancing**
+
+Caranya sama seperti Backend:
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/412b7174-33ba-42c3-bd71-1f3ef98de5da)
