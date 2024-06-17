@@ -92,3 +92,62 @@ Masukkan script berikut:
 5. Day of Week (0-7) (Sunday is 0 or 7)
 
 Jadi, scriptnya akan berjalan tiap hari Minggu jam 2 Pagi
+
+
+## Nginx Directory Tree
+
+```
+root@gateway:/home/finaltask-fadil/nginx# tree -a
+.
+├── .htpasswd
+├── conf.d
+│   ├── f.api-staging.conf
+│   ├── f.api.conf
+│   ├── f.api.conf.save
+│   ├── f.be-staging.conf
+│   ├── f.conf
+│   ├── f.exporter.conf
+│   ├── f.fe-staging.conf
+│   ├── f.hub.conf
+│   ├── f.monitoring.conf
+│   ├── f.pgadmin.conf
+│   ├── f.pipeline.conf
+│   ├── f.prom.conf
+│   ├── f.registry.conf
+│   └── f.staging.conf
+├── letsencrypt
+│   ├── accounts
+│   │   └── acme-v02.api.letsencrypt.org
+│   │       └── directory
+│   │           └── 68d7fdf8da8231f8812d4a2f75eea244
+│   │               ├── meta.json
+│   │               ├── private_key.json
+│   │               └── regr.json
+│   ├── archive
+│   │   └── fadil.studentdumbways.my.id
+│   │       ├── cert1.pem
+│   │       ├── chain1.pem
+│   │       ├── fullchain1.pem
+│   │       └── privkey1.pem
+│   ├── letsencrypt.log
+│   ├── letsencrypt.log.1
+│   ├── live
+│   │   ├── README
+│   │   └── fadil.studentdumbways.my.id
+│   │       ├── README
+│   │       ├── cert.pem -> ../../archive/fadil.studentdumbways.my.id/cert1.pem
+│   │       ├── chain.pem -> ../../archive/fadil.studentdumbways.my.id/chain1.pem
+│   │       ├── fullchain.pem -> ../../archive/fadil.studentdumbways.my.id/fullchain1.pem
+│   │       └── privkey.pem -> ../../archive/fadil.studentdumbways.my.id/privkey1.pem
+│   ├── renewal
+│   │   ├── cloudflare.ini
+│   │   └── fadil.studentdumbways.my.id.conf
+│   └── renewal-hooks
+│       ├── deploy
+│       ├── post
+│       └── pre
+├── nginx.conf
+└── renew_cert.sh
+
+15 directories, 34 files
+```
