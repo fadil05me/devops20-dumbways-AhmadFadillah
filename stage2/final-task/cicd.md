@@ -86,6 +86,10 @@ Selanjutnya masuk ke dalam folder Production, Buat Pipeline baru.
 
 Pastikan untuk ceklist pada bagian ```GitHub hook trigger for GITScm polling```.
 
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/4ae4bfc0-c32e-4799-8dc9-e4870d6efb8b)
+
+
 Pada Definition pilih ```Pipeline script from SCM```.
 
 SCM ganti ke ```Git```
