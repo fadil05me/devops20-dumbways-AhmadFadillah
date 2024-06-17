@@ -31,7 +31,7 @@
 -----
 
 
-## Database PostgreSQL Staging 
+## Database PostgreSQL for Staging 
 
 Buat file docker-compose.yaml:
 ```
@@ -50,7 +50,7 @@ services:
       - /home/finaltask-fadil/postgres_data:/var/lib/postgresql/data
 ```
 
-Tes konek ke PSQL secara remote:
+Test Connetion to PSQL remotely:
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ac492dbe-c321-4baf-a572-e720b732e30d)
 
