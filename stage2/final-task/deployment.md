@@ -156,7 +156,7 @@ Start:
 docker compose up -d
 ```
 
-## Untuk load balancing hanya tersedia untuk production, lihat ke kubernetes [DISINI]([https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/kubernetes.md](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/kubernetes.md#load-balancing))
+## Untuk load balancing hanya tersedia untuk production, lihat ke kubernetes [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/kubernetes.md#load-balancing)
 
 ## Hasil
 
