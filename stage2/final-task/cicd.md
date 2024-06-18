@@ -64,6 +64,17 @@ Pastikan Jenkins URL sudah sesuai.
 ![Screenshot 2024-06-14 153202](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/07afac1b-aca4-4101-9d57-4c23632cb5b3)
 
 
+
+Selanjutnya, Install Plugin. ```Manage Jenkins``` -> ```Plugins``` -> ```Available Plugins```. Cari ```Pipeline``` dan ```Blue Ocean```.
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7bef6b00-1933-4d15-8d1c-2c88f93db091)
+
+
+![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/536d0f85-8aea-4734-8696-6c795ea53f43)
+
+
+
 Jika sudah sukses, buat ```Credentials``` baru. ```Manage Jenkins``` -> ```Credentials``` -> ```System``` -> ```Global credentials``` -> ```Add Credentials```.
 
 Pilih ```SSH Username with private key```, masukkan ID yang nantinya berperan sebagai variable, masukkan username dan private key.
