@@ -13,5 +13,5 @@ Steps:
 5. Create Deployment Environment: [Deployment](deployment.md)
 6. Create CICD: [CI/CD](CICD.md)
 7. Create Monitoring Environment: [Monitoring](monitoring.md)
-8. Create Web Server [Webserver](webserver.md)
+8. Create Webserver: [Webserver](webserver.md)
 9. Create Kubernetes Cluster using k3s: [Kubernetes](kubernetes.md)
