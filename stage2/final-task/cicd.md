@@ -65,7 +65,7 @@ Pastikan Jenkins URL sudah sesuai.
 
 
 
-Selanjutnya, Install Plugin. ```Manage Jenkins``` -> ```Plugins``` -> ```Available Plugins```. Cari ```Pipeline``` dan ```Blue Ocean```.
+Selanjutnya Install Plugin. ```Manage Jenkins``` -> ```Plugins``` -> ```Available Plugins``` -> Cari ```Pipeline``` dan ```Blue Ocean``` -> ```Install```.
 
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7bef6b00-1933-4d15-8d1c-2c88f93db091)
