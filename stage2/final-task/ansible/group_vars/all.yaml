@@ -1,0 +1,60 @@
+# Inventory
+username: "fadil05me"
+SSHport: "1234"
+
+# Create New user
+newuser: "finaltask-fadil"
+home_dir: "/home/{{ newuser }}"
+public_key: "/home/{{ username }}/.ssh/id_rsa.pub" # location of your pub_key in your local machine
+enc_pass: "your_encrypted_password"
+
+# Monitoring
+job_name: "Dev"
+scrape_interval: "5s"
+targets:
+  - "103.127.134.73:9100"
+  - "103.127.99.163:9100"
+  - "52.187.151.49:9100"
+  - "52.187.151.75:9100"
+  - "103.127.134.73:8181"
+  - "103.127.99.163:8181"
+  - "52.187.151.49:8181"
+  - "52.187.151.75:8181"
+grafana_dir: "{{ home_dir }}/grafana"
+prometheus_config: "{{ grafana_dir }}/prometheus.yml"
+grafana_datasources: "{{ grafana_dir }}/provisioning/datasources"
+grafana_data: "{{ grafana_dir }}/data"
+
+# Reverse Proxy
+nginx_dir: "{{ home_dir }}/nginx"
+cloudflare_api: "your_cf_api"
+cloudflare_email: "your_email@gmail.com"
+domain: "fadil.studentdumbways.my.id"
+subdomains:
+  - name: "exporter."
+    backend: "103.127.134.73:9100"
+  - name: "monitoring."
+    backend: "103.127.134.73:8080"
+  - name: "prom."
+    backend: "103.127.134.73:9090"
+  - name: "registry."
+    backend: "52.187.151.49:7000"
+  - name: "hub."
+    backend: "52.187.151.49:8080"
+  - name: "api."
+    backend: "52.187.151.75:30500"
+  - name: ""
+    backend: "52.187.151.75:30300"
+  - name: "staging."
+    backend: "103.127.134.73:3000"
+  - name: "api-staging."
+    backend: "103.127.134.73:5000"
+  - name: "pgadmin."
+    backend: "52.187.151.75:30777"
+  - name: "pipeline."
+    backend: "103.127.134.73:7070"
+
+
+# K3s
+masterip: "10.0.0.1"
+kubecfg: "/home/{{ newuser }}/.kube/config"

@@ -1,0 +1,16 @@
+- name: "Install Docker Engine using Ansible"
+  hosts: all
+  become: true
+  vars:
+    ansible_user: "{{ username }}"
+    ansible_ssh_port: "22"
+  tasks:
+
+    - name: "Run Docker installer script"
+      shell: "curl -s https://raw.githubusercontent.com/fadil05me/devops20-dumbways-AhmadFadillah/main/stage2/week2/docker_installer.sh | bash"
+
+    - name: "Ensure Docker service is started and enabled"
+      systemd:
+        name: docker
+        state: started
+        enabled: yes

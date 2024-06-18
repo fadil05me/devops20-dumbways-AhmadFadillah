@@ -1,0 +1,7 @@
+[biznet]
+appserver ansible_host=103.127.134.73 ansible_user="{{ newuser }}" ansible_ssh_port="{{ SSHport }}"
+gateway ansible_host=103.127.99.163 ansible_user="{{ newuser }}" ansible_ssh_port="{{ SSHport }}"
+
+[azure]
+worker ansible_host=52.187.151.49 ansible_user="{{ newuser }}" ansible_ssh_port="{{ SSHport }}"
+master ansible_host=52.187.151.75 ansible_user="{{ newuser }}" ansible_ssh_port="{{ SSHport }}"

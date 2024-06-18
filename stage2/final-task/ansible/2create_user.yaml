@@ -1,0 +1,68 @@
+- name: "Create user using Ansible"
+  hosts: all
+  become: true
+  vars:
+    ansible_user: "{{ username }}"
+    ansible_ssh_port: "22"
+  tasks:
+
+    - name: "Create new user with sudo and docker access"
+      user:
+        name: "{{ newuser }}"
+        password: "{{ enc_pass }}"
+        shell: /bin/bash
+        createhome: yes
+        groups: sudo,docker
+        append: yes
+
+    - name: "Add sudoers entry to disable password prompt"
+      become: yes
+      lineinfile:
+        path: /etc/sudoers.d/nopassword
+        line: '{{ newuser }} ALL=(ALL) NOPASSWD:ALL'
+        create: yes
+        validate: 'visudo -cf %s'
+
+    - name: "Create .ssh folder"
+      file: 
+        path: "{{ home_dir }}/.ssh"
+        state: directory
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+        mode: 0700
+
+    - name: "Create authorized_keys"
+      copy:
+        src: "{{ public_key }}"
+        dest: "{{ home_dir }}/.ssh/authorized_keys"
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+        mode: 0600
+    
+    - name: "Allow login using password"
+      lineinfile:
+        path: "{{ item }}"
+        regexp: "PasswordAuthentication no"
+        line: "PasswordAuthentication yes"
+      loop:
+          - "/etc/ssh/sshd_config"
+          - "/etc/ssh/sshd_config.d/50-cloud-init.conf"
+
+    - name: "Allow login using pubkey"
+      lineinfile:
+        path: "/etc/ssh/sshd_config"
+        regexp: 'PubkeyAuthentication no'
+        line: 'PubkeyAuthentication yes'
+
+
+    - name: "Disable password authentication for root"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        state: present
+        regexp: '^#?PermitRootLogin'
+        line: 'PermitRootLogin prohibit-password'
+
+    - name: "Reload sshd"
+      ansible.builtin.systemd_service:
+        name: sshd
+        state: reloaded

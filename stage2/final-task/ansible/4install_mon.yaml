@@ -1,0 +1,115 @@
+- name: "Deploy Monitoring"
+  hosts: all
+  become: yes
+
+  tasks:
+
+    # Appserver
+    - name: "Create 'grafana' directory if it does not exist"
+      ansible.builtin.file:
+        path: "{{ grafana_dir }}"
+        state: directory
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+        mode: "0755"
+      when: inventory_hostname == 'appserver'
+
+    # Appserver
+    - name: "Create 'prometheus.yml' file"
+      ansible.builtin.copy:
+        dest: "{{ prometheus_config }}"
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+        mode: "0644"
+        content: |
+          scrape_configs:
+          - job_name: {{ job_name }}
+            scrape_interval: {{ scrape_interval }}
+            static_configs:
+            - targets:
+            {% for x in targets %}
+              - {{ x }}
+            {% endfor %}
+      when: inventory_hostname == 'appserver'
+
+    - name: "Create Docker network 'monitoring'"
+      docker_network:
+        name: monitoring
+        state: present
+
+    - name: "Deploy node-exporter container"
+      docker_container:
+        name: node-exporter
+        image: prom/node-exporter:latest
+        restart_policy: unless-stopped
+        volumes:
+          - /proc:/host/proc:ro
+          - /sys:/host/sys:ro
+          - /:/rootfs:ro
+        command:
+          - '--path.procfs=/host/proc'
+          - '--path.rootfs=/rootfs'
+          - '--path.sysfs=/host/sys'
+          - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+        ports:
+          - "9100:9100"
+        networks:
+          - name: monitoring
+
+    - name: Run cAdvisor container
+      docker_container:
+        name: cadvisor
+        image: gcr.io/cadvisor/cadvisor
+        state: started
+        restart_policy: always
+        ports:
+          - "8181:8080"
+        volumes:
+          - /:/rootfs:ro
+          - /var/run:/var/run:rw
+          - /sys:/sys:ro
+          - /var/lib/docker/:/var/lib/docker:ro
+          - /dev/disk/:/dev/disk:ro
+          - /sys/fs/cgroup:/sys/fs/cgroup:ro
+          - /sys/fs/cgroup/cpu:/sys/fs/cgroup/cpu:ro
+          - /sys/fs/cgroup/cpuacct:/sys/fs/cgroup/cpuacct:ro
+          - /sys/fs/cgroup/blkio:/sys/fs/cgroup/blkio:ro
+          - /sys/fs/cgroup/memory:/sys/fs/cgroup/memory:ro
+          - /sys/fs/cgroup/pids:/sys/fs/cgroup/pids:ro
+
+    # Appserver
+    - name: "Deploy prometheus container"
+      docker_container:
+        name: prometheus
+        image: prom/prometheus:latest
+        restart_policy: unless-stopped
+        volumes:
+          - "{{ prometheus_config }}:/etc/prometheus/prometheus.yml"
+          - prometheus_data:/prometheus
+        command:
+          - '--config.file=/etc/prometheus/prometheus.yml'
+          - '--storage.tsdb.path=/prometheus'
+          - '--web.console.libraries=/etc/prometheus/console_libraries'
+          - '--web.console.templates=/etc/prometheus/consoles'
+          - '--web.enable-lifecycle'
+        ports:
+          - "9090:9090"
+        networks:
+          - name: monitoring
+      when: inventory_hostname == 'appserver'
+
+    # Appserver
+    - name: "Deploy grafana container"
+      docker_container:
+        name: grafana
+        image: grafana/grafana:latest
+        restart_policy: unless-stopped
+        user: root
+        volumes:
+          - "{{ grafana_datasources }}:/etc/grafana/provisioning/datasources"
+          - "{{ grafana_data }}:/var/lib/grafana"
+        ports:
+          - "8080:3000"
+        networks:
+          - name: monitoring
+      when: inventory_hostname == 'appserver'

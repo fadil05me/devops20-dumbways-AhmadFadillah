@@ -1,0 +1,65 @@
+- name: Install Jenkins on Docker
+  hosts: appserver
+  vars:
+      ansible_user: "{{ newuser }}"
+  tasks:
+    - name: Ensure jenkins_data directory exists with correct permissions
+      file:
+        path: "{{ home_dir }}/jenkins_data"
+        state: directory
+        mode: '0755'
+        owner: 1000
+        group: 1000
+
+    - name: "Copy id_rsa and known_hosts"
+      shell: "sudo cp {{ home_dir }}/.ssh/{{ item }} {{ home_dir }}/jenkins_data/{{ item }}"
+      loop:
+        - "id_rsa"
+        - "known_hosts"
+
+    - name: Pull Jenkins Docker image
+      docker_image:
+        name: jenkins/jenkins
+        tag: lts
+        source: pull
+
+    - name: Run Jenkins container
+      docker_container:
+        name: jenkins
+        image: jenkins/jenkins:lts
+        state: started
+        restart_policy: always
+        ports:
+          - "7070:8080"
+          - "50000:50000"
+        volumes:
+          - "{{ home_dir }}/jenkins_data:/var/jenkins_home"
+          - "{{ home_dir }}/.ssh/id_rsa:/var/jenkins_home/.ssh/id_rsa:rw"
+          - "{{ home_dir }}/.ssh/known_hosts:/var/jenkins_home/.ssh/known_hosts:rw"
+      register: jenkins_container
+
+    - name: Wait for Jenkins to be up
+      wait_for:
+        host: localhost
+        port: 7070
+        delay: 30
+        timeout: 300
+      when: jenkins_container is changed
+
+    - name: "Change permissions"
+      shell: "{{ item }}"
+      loop: 
+        - "docker exec -u root jenkins chown -R jenkins:jenkins /var/jenkins_home/.ssh"
+        - "docker exec -u root jenkins chmod 700 /var/jenkins_home/.ssh"
+        - "docker exec -u root jenkins chmod 600 /var/jenkins_home/.ssh/known_hosts"
+
+    - name: Get Jenkins initial admin password
+      command: "docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword"
+      register: initial_admin_password
+      retries: 5
+      delay: 15
+      until: initial_admin_password.rc == 0
+
+    - name: Display initial admin password
+      debug:
+        msg: "Jenkins initial admin password is {{ initial_admin_password.stdout }}"

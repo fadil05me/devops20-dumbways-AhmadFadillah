@@ -1,0 +1,97 @@
+- hosts: all
+  become: true
+  tasks:
+
+  - name: "Change port SSH"
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      state: present
+      regexp: 'Port 22'
+      line: 'Port 1234'
+
+  - name: "UFW - Allow ports for all"
+    community.general.ufw:
+      rule: allow
+      port: "{{item}}"
+    loop:
+        - "1234" # SSH
+        - "9100" # NodeEx
+        - "8181" # Cadvisor
+
+  - name: "UFW - Allow ports for worker"
+    community.general.ufw:
+      rule: allow
+      port: "{{item}}"
+    loop:
+        - "6444" # k3s-agent
+        - "8472" # k3s
+        - "51820" # k3s
+        - "30432" # pgsql
+        - "30777" # pgadmin
+        - "30300" # frontend k3s
+        - "30500" # backend k3s
+        - "8080" # registry-ui
+        - "7000" # registry
+        - "3000" # docker test fe
+        - "5000" # docker test be
+        - "3010" # docker test fe prod
+        - "5050" # docker test be prod
+    when: inventory_hostname == 'worker'
+
+  - name: "UFW - Allow Other ports for appserver"
+    community.general.ufw:
+      rule: allow
+      port: "{{item}}"
+    loop:
+        - "50000" # Jenkins
+        - "7070" # Jenkins
+        - "8080" # Grafana
+        - "3000" # FE Staging
+        - "5000" # BE Staging
+        - "9090" # Prometheus
+        - "3001" # FE Prod
+        - "5001" # BE Prod
+    when: inventory_hostname == 'appserver'
+
+  - name: "UFW - Allow ports for master"
+    community.general.ufw:
+      rule: allow
+      port: "{{item}}"
+    loop:
+        - "6443" # k3s
+        - "8472" # k3s
+        - "51820" # k3s
+        - "5000" # backend
+        - "3000" # frontend
+        - "30432" # pgsql
+        - "30777" # pgadmin
+        - "30300" # frontend k3s
+        - "30500" # backend k3s
+        - "5432" # PSQL
+    when: inventory_hostname == 'master'
+
+  - name: "UFW - Allow Other ports for gateway"
+    community.general.ufw:
+      rule: allow
+      port: "{{item}}"
+    loop:
+        - "80" # HTTP Nginx
+        - "443" # HTTPS Nginx
+        - "5432" # PSQL
+    when: inventory_hostname == 'gateway'
+
+  - name: "UFW - Enable and deny by default"
+    community.general.ufw:
+      state: enabled
+      default: deny        
+  
+  - name: "UFW - restarted"
+    ansible.builtin.systemd:
+      name: ufw
+      state: restarted
+
+  - name: "reload sshd"
+    ansible.builtin.systemd_service:
+      name: sshd
+      state: reloaded
+  

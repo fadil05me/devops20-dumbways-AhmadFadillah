@@ -1,0 +1,78 @@
+- name: "Install k3s and configure worker node"
+  hosts: [azure]
+  become: yes
+
+  tasks:
+  # Change Hostname
+    - name: "Change hostname"
+      command: "hostnamectl set-hostname {{ inventory_hostname }}"
+
+  # Install k3s
+
+    - name: "Install k3s"
+      shell: curl -sfL https://get.k3s.io | sh -
+      when: inventory_hostname == 'master'
+
+    - name: "Read K3S token from master"
+      command: cat /var/lib/rancher/k3s/server/token
+      register: master_token
+      when: inventory_hostname == 'master'
+
+    - name: "Set master token fact"
+      set_fact:
+        master_token: "{{ master_token.stdout.strip() }}"
+      when: inventory_hostname == 'master'
+
+  # Worker
+    - name: "Install K3S on worker node"
+      shell: curl -sfL https://get.k3s.io | K3S_URL=https://{{ masterip }}:6443 K3S_TOKEN={{ hostvars['master']['master_token'] }} sh -
+      when: inventory_hostname == 'worker'
+
+
+  # Configure k3s
+    - name: "Create .kube directory"
+      file:
+        path: "/home/{{ newuser }}/.kube"
+        state: directory
+        mode: "0755"
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+      when: inventory_hostname == 'master'
+
+    - name: "Copy k3s.yaml to the user kube config"
+      ansible.builtin.command:
+        cmd: "cp /etc/rancher/k3s/k3s.yaml {{ kubecfg }}"
+      args:
+        creates: "{{ kubecfg }}"
+      when: inventory_hostname == 'master'
+
+    - name: "Set ownership and permissions for the kube config"
+      ansible.builtin.file:
+        path: "{{ kubecfg }}"
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+        mode: '0600'
+      when: inventory_hostname == 'master'
+
+    - name: "Add KUBECONFIG in .bashrc as user"
+      lineinfile:
+        path: "/home/{{ newuser }}/.bashrc"
+        line: "export KUBECONFIG={{ kubecfg }}"
+        create: yes
+        state: present
+        owner: "{{ newuser }}"
+        group: "{{ newuser }}"
+      when: inventory_hostname == 'master'
+
+    - name: "Add KUBECONFIG in .bashrc as root"
+      lineinfile:
+        path: "/root/.bashrc"
+        line: "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml"
+        create: yes
+        state: present
+      when: inventory_hostname == 'master'
+
+    - name: "Create dumbmerch namespace"
+      ansible.builtin.command:
+        cmd: "kubectl create ns dumbmerch"
+      when: inventory_hostname == 'master'

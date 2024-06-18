@@ -1,0 +1,45 @@
+- name: "Clone Repo"
+  hosts: appserver
+  become: false
+  tasks:
+
+    - name: "Create dumbmerch directory if it does not exist"
+      ansible.builtin.file:
+        path: "{{ home_dir }}/dumbmerch/{{ item }}"
+        state: directory
+      loop:
+        - be-dumbmerch
+        - fe-dumbmerch
+
+    - name: "Clone dumbmerch repository"
+      git:
+        repo: "https://github.com/demo-dumbways/{{ item }}.git"
+        dest: "{{ home_dir }}/dumbmerch/{{ item }}"
+        clone: yes
+      loop: 
+        - be-dumbmerch
+        - fe-dumbmerch
+
+    - name: "Create .env file for frontend"
+      copy:
+        dest: "{{ home_dir }}/dumbmerch/fe-dumbmerch/.env"
+        content: |
+          REACT_APP_BASEURL=https://api.fadil.studentdumbways.my.id/api/v1
+
+    - name: "Create production branch"
+      command: "git checkout -b production"
+      args:
+        chdir: "{{ item }}"
+      ignore_errors: yes
+      loop:
+        - "{{ home_dir }}/dumbmerch/be-dumbmerch"
+        - "{{ home_dir }}/dumbmerch/fe-dumbmerch"
+
+    - name: "Create staging branch"
+      command: "git checkout -b staging"
+      args:
+        chdir: "{{ item }}"
+      ignore_errors: yes
+      loop:
+        - "{{ home_dir }}/dumbmerch/be-dumbmerch"
+        - "{{ home_dir }}/dumbmerch/fe-dumbmerch"

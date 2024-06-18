@@ -1,0 +1,8 @@
+- import_playbook: 1install_docker.yaml
+- import_playbook: 2create_user.yaml
+- import_playbook: 3setup_ufw.yaml
+- import_playbook: 4install_mon.yaml
+- import_playbook: 5reverse_proxy.yaml
+- import_playbook: 6clone_repo.yaml
+- import_playbook: 7install_k3s.yaml
+- import_playbook: 8install_jenkins.yaml
