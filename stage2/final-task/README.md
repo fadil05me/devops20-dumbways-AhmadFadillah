@@ -4,6 +4,10 @@
 ----------
 
 
+![Presentation1](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/c6514d73-7a86-4441-b2a0-5c7b02704727)
+
+
+
 Steps:
 
 1. Servers Provisioning: [Provisioning](provisioning.md)
