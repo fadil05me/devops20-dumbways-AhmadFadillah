@@ -1,35 +1,35 @@
------
-# **DOCKER REGISTRY**
------
+# DOCKER REGISTRY
 
-## TASK
+---
 
-**Before you start the task, please read this:**
-- Please screenshot the command step-by-step
-- Describe the process in your final task repository
+### Task Overview
 
-**Requirements**
-- Docker Registry Private
+> **Before starting this task, please follow these instructions:**
+- Capture step-by-step screenshots of the commands you execute.
+- Document the process in your final task repository.
 
-**Instructions**
+---
 
-[ *Docker Registry* ]
+### Requirements
+- Set up a **private Docker Registry** on your server.
 
-- Deploy Docker Registry Private on this server
-- Push your image into Your Own Docker Registry
-- reverse proxy registry-$name.studentdumbways.my.id
+### Instructions
 
-[*Referention*]
-[Docker Registry Private](https://hub.docker.com/_/registry)
+- Deploy a private Docker registry on your own server.
+- Push Docker images to your private registry.
+- Configure a reverse proxy:  
+  `registry-<yourname>.studentdumbways.my.id`
 
------
+**Reference:** [Docker Registry Official Image](https://hub.docker.com/_/registry)
 
-## Deploy docker registry private
+---
 
-Buat file ```docker-compose.yaml```
-Disini saya juga menambahkan frontend untuk registry
+## Deploying the Private Docker Registry
+
+First, create a `docker-compose.yaml` file.  
+This setup also includes a frontend UI for visualizing the registry:
+
 ```
-version: '3.8'
 
 services:
   registry:
@@ -56,76 +56,80 @@ services:
 volumes:
   registry-data:
 ```
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7d406c56-6ebe-4a94-8726-63a0e63c2c16)
 
+Example output:
 
-Jalankan docker compose
+![Registry containers](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7d406c56-6ebe-4a94-8726-63a0e63c2c16)
+
+Start the registry using:
+
 ```
 docker compose up -d
 ```
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2d730607-2a84-4175-a8fe-e84225574fb5)
+Result:
 
+![Containers running](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/2d730607-2a84-4175-a8fe-e84225574fb5)
 
-**Reverse Proxy**
+---
 
+## Configuring Reverse Proxy (NGINX)
 
-Pada file nginx.conf, tambahkan limit upload sebesar max 500MB dan tambahkan juga SSL Cert:
+In your `nginx.conf`, add:
+- File upload limit (max 500MB)
+- SSL certificate configuration
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ed5b3940-2fce-4fa2-898a-885af445fccd)
+Example configuration snippet:
 
+![NGINX config](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ed5b3940-2fce-4fa2-898a-885af445fccd)
 
-Konfigurasi untuk subdomain registry.fadil.studentdumbways.my.id:
+Subdomain configuration examples:
+- `registry.fadil.studentdumbways.my.id`  
+  ![registry config](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/483d1297-ef46-4d8c-8a75-80ff8efaf188)
+- `hub.fadil.studentdumbways.my.id`  
+  ![hub config](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7a4da88d-0093-41c7-aad2-9a2c8e376554)
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/483d1297-ef46-4d8c-8a75-80ff8efaf188)
+---
 
-Konfigurasi untuk subdomain hub.fadil.studentdumbways.my.id:
+## Setting Up Basic Authentication (for `hub` subdomain)
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/7a4da88d-0093-41c7-aad2-9a2c8e376554)
+Install `apache2-utils`:
 
-
-Setup basic auth untuk hub.fadil.studentdumbways.my.id:
-
-install apache2-utils
 ```
 sudo apt-get update
 sudo apt-get install apache2-utils
 ```
 
-Di dalam folder nginx generate .htpasswd, ganti fadil menjadi nama user lalu enter dan masukkan password yang diinginkan:
+Inside your NGINX folder, generate the `.htpasswd` file. Replace `fadil` with your desired username:
+
 ```
 sudo htpasswd -c .htpasswd fadil
 ```
 
+---
 
-**Hasil:**
+## Final Result
 
+![Registry dashboard](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3471629e-ed27-43a8-945b-bc4eb212b17a)
+![Registry UI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/51bc6a58-760d-40ed-9f2b-0004d9726754)
+![Registry listing](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/56e74c9f-7db0-4528-a8d3-93d55bde5033)
 
+---
 
-![Screenshot 2024-06-12 121023](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/3471629e-ed27-43a8-945b-bc4eb212b17a)
+## Pushing Images to Your Private Registry
 
+Build the image:
 
-
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/51bc6a58-760d-40ed-9f2b-0004d9726754)
-
-
-
-
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/56e74c9f-7db0-4528-a8d3-93d55bde5033)
-
-
-
-
-## Push Image to Docker Private Registry
-
-Build imagenya terlebih dahulu
 ```
 docker build -t registry.fadil.studentdumbways.my.id/be-dumbmerch-staging:1.0 .
 ```
 
-Selanjutnya push ke registry
+Push the image to your registry:
+
 ```
 docker push registry.fadil.studentdumbways.my.id/be-dumbmerch-staging:1.0
 ```
 
-![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bb02f0ff-4bb0-4d65-bc72-bb833f22dee8)
+Result:
+
+![Push success](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/bb02f0ff-4bb0-4d65-bc72-bb833f22dee8)
