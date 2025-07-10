@@ -1,36 +1,38 @@
------
 # **KUBERNETES**
------
 
 ## TASK
 
 **Before you start the task, please read this:**
-- Please screenshot the command step-by-step
+
+- Please screenshot each command step-by-step
 - Describe the process in your final task repository
 
 **Requirements**
-- k3s/ Vanilla /Docker Swarm
-- Kubernetes Engine (VKE, GKE or EKS)
+
+- k3s / Vanilla / Docker Swarm
+- Kubernetes Engine (VKE, GKE, or EKS)
 
 **Instructions**
-- No 5 (Deployment) app runs inside a kubernetes cluster (include frontend, backend, and database)
-- Apps running 100% with backend and db integration
+
+- App from step 5 (Deployment) runs inside a Kubernetes cluster (includes frontend, backend, and database)
+- App must run 100% with backend and database integration
 
 -----
 
-## Installasi K3s
+## K3s Installation
 
-Untuk Installasi K3s saya menggunakan Ansible, Scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/7install_k3s.yaml).
+I used Ansible for K3s installation. You can see the script [HERE](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/7install_k3s.yaml).
 
 
-Setelah installasi selesai, cek apakah namespace sudah terbuat.
+After installation, check if the namespace has been created:
 ```
 kubectl get ns
 ```
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/ee9a380b-1553-475d-9712-41e3a1d53c24)
 
-### Uninstall traefik using helm
+
+### Uninstall Traefik using Helm
 
 Install Helm
 ```
@@ -41,21 +43,21 @@ sudo apt-get update
 sudo apt-get install helm
 ```
 
-Selanjutnya jalankan command berikut:
+Then run the following command:
 ```
 sudo rm -rf /var/lib/rancher/k3s/server/manifests/traefik.yaml;
 helm uninstall traefik traefik-crd -n kube-system
 ```
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/93925fe9-fa08-4422-bd0b-0edfab015e1b)
 
-### Setup persistent volume on k3s config
+### Configure Persistent Volume in K3s
 
-**Pada node master:**
+**On master node:**
 ```
 sudo nano /etc/rancher/k3s/config.yaml
 ```
 
-Masukkan config berikut:
+Add this config:
 ```
 cluster-init: true
 disable: servicelb
@@ -63,31 +65,31 @@ disable: traefik
 default-local-storage-path: /home/finaltask-fadil/pg-data
 ```
 
-Jika sudah restart service k3s:
+Then restart K3s service:
 ```
 sudo systemctl restart k3s
 ```
 
-**Pada node worker:**
+**On worker node:**
 ```
 sudo nano /etc/rancher/node/config.yaml
 ```
 
-Masukkan config berikut:
+Add this config:
 ```
 disable: servicelb
 disable: traefik
 default-local-storage-path: /home/finaltask-fadil/pg-data
 ```
 
-Jika sudah restart service k3s-agent:
+Restart the K3s agent service:
 ```
 sudo systemctl restart k3s-agent
 ```
 
-## Deploy Postgres Database
+## Deploy PostgreSQL Database
 
-Buat folder database, dan buat file baru dengan nama pg.yaml
+Create a folder named `database` and create a file called `pg.yaml`:
 ```
 apiVersion: v1
 kind: Secret
@@ -176,7 +178,7 @@ spec:
     app: postgresql
 ```
 
-Deploy Database dengan menjalankan command berikut:
+Deploy the database:
 ```
 kubectl apply -f pg.yaml
 ```
@@ -186,7 +188,8 @@ kubectl apply -f pg.yaml
 
 ## Deploy Backend Production
 
-Edit file .env:
+Update `.env` file:
+
 ```
 DB_HOST=db.fadil.studentdumbways.my.id
 DB_USER=fadil
@@ -195,7 +198,8 @@ DB_NAME=dumbmerch
 DB_PORT=5432
 ```
 
-Buat folder dumbmerch di home, lalu buat file backend.yaml:
+Create a folder named `dumbmerch` and create `backend.yaml`:
+
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -245,6 +249,8 @@ kubectl apply -f backend.yaml
 
 ## Deploy Frontend
 
+Create `frontend.yaml`:
+
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -292,9 +298,11 @@ kubectl apply -f frontend.yaml
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/b543ece6-7d82-4319-8ab0-d925edb112d7)
 
 
-## Deploy Pgadmin
+## Deploy PgAdmin
 
-Kembali ke folder database, lalu buat file pgadmin.yaml:
+Go back to the `database` folder and create `pgadmin.yaml`. (Refer to original YAML above)
+
+Deploy PgAdmin:
 ```
 apiVersion: v1
 kind: Secret
@@ -361,11 +369,8 @@ Deploy Pgadmin:
 kubectl apply -f pgadmin.yaml
 ```
 
-Login ke Pgadmin, ```Add New Server```.
+Login to PgAdmin and add a new server using the IP, Port, Username, and Password.
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/1668e9a4-388d-4552-94ab-8eed42196a17)
-
-Masukkan Ip address, Port, Username dan Password. Lalu klik Save.
-
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/f80bad50-d000-46b9-9983-2417784afa51)
 
 
@@ -386,9 +391,9 @@ Masukkan Ip address, Port, Username dan Password. Lalu klik Save.
 
 ## Load Balancing
 
-**PosgreSQL Load balancing**
+### PostgreSQL Load Balancing
 
-Buat folder baru di home dengan nama HAProxy, lalu buat file haproxy.cfg.
+Create a new folder called `HAProxy` and add the `haproxy.cfg` file:
 ```
 global
     log stdout format raw local0
@@ -417,7 +422,7 @@ backend postgres_backend
 ```
 
 
-File docker-compose.yaml
+Create a `docker-compose.yaml` file:
 
 ```
 services:
@@ -430,27 +435,29 @@ services:
       - "5432:5432"
 ```
 
-Selanjutnya jalankan ```docker compose up -d```
+Run HAProxy:
 
+```
+docker compose up -d
+```
 
-Cek koneksi ke database:
+Check DB connection to ensure load balancing works.
 
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/da46624c-b45f-4133-b8ea-f41c542b1490)
 
 
-**Backend Load Balancing**
+### Backend Load Balancing
 
-Edit file configurasi dari server backend.
 
-Tambahkan Ip address backend pada upstream:
+Edit the NGINX backend config file and add backend IP addresses in the upstream section.:
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e75deda7-d1f0-4fe2-9b35-91a262fe5c49)
 
 
 
-**Frontend Load Balancing**
+### Frontend Load Balancing
 
-Caranya sama seperti Backend:
+Repeat the same method as backend for frontend config:
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/412b7174-33ba-42c3-bd71-1f3ef98de5da)
