@@ -33,7 +33,7 @@
 
 ## Database PostgreSQL for Staging 
 
-Buat file docker-compose.yaml:
+Create **docker-compose.yaml** file:
 ```
 services:
   postgres:
@@ -57,7 +57,7 @@ Test Connetion to PSQL remotely:
 
 ## Docker image for frontend
 
-Buat Dockerfile:
+Create **Dockerfile**:
 ```
 FROM node:16-alpine AS build
 
@@ -97,7 +97,7 @@ DB_NAME=dumbmerch
 DB_PORT=5432
 ```
 
-Buat Dockerfile:
+Create **Dockerfile**:
 ```
 FROM golang:1.16-alpine as build
 
@@ -133,7 +133,7 @@ docker build -t registry.fadil.studentdumbways.my.id/be-dumbmerch-staging:latest
 
 ## Deploy frontend and backend staging
 
-Buat file docker-compose.yaml:
+Create **docker-compose.yaml** file:
 ```
 version: '3.8'
 
@@ -151,18 +151,14 @@ services:
       - "5000:5000"
 ```
 
-Start:
+To start:
 ```
 docker compose up -d
 ```
 
------
-## **Untuk load balancing hanya tersedia untuk production, lihat ke kubernetes [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/kubernetes.md#load-balancing)**
------
 
 
-
-## Hasil
+## Result
 
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/79fdad6c-0641-4f5f-8487-03992f257406)
 
