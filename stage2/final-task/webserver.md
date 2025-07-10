@@ -25,9 +25,9 @@
 
 -----
 
-# Webserver Setup
+# Reverse Proxy Setup
 
-For setting up the web server, I used Ansible. The script can be found [HERE](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/5reverse_proxy.yaml).
+For setting up the Reverse Proxy, I used Ansible. The script can be found [HERE](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/5reverse_proxy.yaml).
 
 ## Setup Automatic Certificate Renewal
 
