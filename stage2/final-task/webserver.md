@@ -1,38 +1,37 @@
------
 # WEB SERVER
------
 
 ## TASK
 
 **Before you start the task, please read this:**
-- Please screenshot the command step-by-step
+- Please include step-by-step command screenshots
 - Describe the process in your final task repository
 
 **Requirements**
-- NGINX/Apache2/Lightspeed on Gateway
-- SSL Certbot using Wildcard
-- Automatic SSL (Ansible/Cronjob/Script etc.)
+- Use NGINX / Apache2 / Lightspeed on the Gateway
+- Use Certbot Wildcard SSL Certificate
+- Automatic SSL renewal (via Ansible, Cronjob, or Script)
 
 **Instructions**
-- Create domains:
-  - <name>.studentdumbways.my.id - App
-  - api.<name>.studentdumbways.my.id - Backend API
-  - exporter.<name>.studentdumbways.my.id - Node Exporter
-  - prom.<name>.studentdumbways.my.id - Prometheus
-  - monitoring.<name>.studentumbways.my.id - Grafana
-  - registry.<name>.studentdumbways.my.id - Docker Registry
-- All domains are HTTPS
-- Create Bash Script for Automatic renewal for Certificates
+- Create the following domains:
+  - <name>.studentdumbways.my.id → App
+  - api.<name>.studentdumbways.my.id → Backend API
+  - exporter.<name>.studentdumbways.my.id → Node Exporter
+  - prom.<name>.studentdumbways.my.id → Prometheus
+  - monitoring.<name>.studentdumbways.my.id → Grafana
+  - registry.<name>.studentdumbways.my.id → Docker Registry
+- All domains must be accessible via HTTPS
+- Create a Bash script for automatic certificate renewal
+
 
 -----
 
-# Setup Webserver
+# Webserver Setup
 
-Untuk setup webserver disini saya menggunakan Ansible, Untuk Scriptnya bisa dilihat [DISINI](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/5reverse_proxy.yaml).
+For setting up the web server, I used Ansible. The script can be found [HERE](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/blob/main/stage2/final-task/ansible/5reverse_proxy.yaml).
 
-## Setup Automatic Renewal for Certificate
+## Setup Automatic Certificate Renewal
 
-Buat file baru dengan nama ```renew_cert.sh```.
+Create a new file named `renew_cert.sh`:
 ```
 #!/bin/bash
 
@@ -62,12 +61,12 @@ docker run --rm \
 docker exec nginx-reverse-proxy nginx -s reload
 ```
 
-Lakukan chmod:
+Make the script executable:
 ```
 chmod +x renew_cert.sh
 ```
 
-Jalankan Crontab editor. Pilih 1 untuk menggunakan nano.
+Edit the crontab file. Choose option 1 to use nano:
 ```
 crontab -e
 ```
@@ -75,7 +74,8 @@ crontab -e
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/0dd62f23-cd1f-47d9-b652-b8388e9fd926)
 
 
-Masukkan script berikut:
+Add the following cron job to run every Sunday at 2 AM:
+
 ```
 0 2 * * 0 /home/finaltask-fadil/nginx/renew_cert.sh >> /home/finaltask-fadil/nginx/cert-renewal.log 2>&1
 ```
@@ -83,7 +83,7 @@ Masukkan script berikut:
 ![image](https://github.com/fadil05me/devops20-dumbways-AhmadFadillah/assets/45775729/e5f1664f-7fea-46ab-adfc-2d4f6a9903b4)
 
 
-## Explanation ```0 2 * * 0```
+## Explanation of ```0 2 * * 0```
 
 1. Minute (0-59)
 2. Hour (0-23)
@@ -91,10 +91,11 @@ Masukkan script berikut:
 4. Month (1-12)
 5. Day of Week (0-7) (Sunday is 0 or 7)
 
-Jadi, scriptnya akan berjalan tiap hari Minggu jam 2 Pagi
+This means the script will run every Sunday at 2:00 AM.
 
+---
 
-## Nginx Directory Tree
+## Nginx Directory Structure
 
 ```
 root@gateway:/home/finaltask-fadil/nginx# tree -a
